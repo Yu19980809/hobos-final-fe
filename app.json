@@ -1,7 +1,15 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+	"pages/shows/index/index",
+	"pages/shows/show/index",
+	"pages/shows/new/index",
+	"pages/shows/edit/index",
+	"pages/shows/management/index",
+	"pages/users/index/index",
+	"pages/users/edit/index",
+	"pages/bookings/index/index",
+	"pages/followings/index/index",
+	"pages/comedians/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
