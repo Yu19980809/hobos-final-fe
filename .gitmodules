@@ -1,0 +1,3 @@
+[submodule "mp-stylesheets"]
+	path = mp-stylesheets
+	url = git@github.com:codesmithschina/mp-stylesheets.git
