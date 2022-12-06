@@ -1,6 +1,7 @@
 {
 	"projectname": "hobos-final-fe",
 	"setting": {
-		"compileHotReLoad": true
+		"compileHotReLoad": true,
+		"urlCheck": false
 	}
 }
