@@ -1,2 +1,2 @@
 /* 引入stylesheets */
-@import "mp-stylesheets/index.wxss";
+@import "stylesheets/index.wxss";
