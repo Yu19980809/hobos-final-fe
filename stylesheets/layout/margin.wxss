@@ -122,8 +122,10 @@
 .py40 { padding-top: 40rpx !important; padding-bottom: 40rpx !important; }
 .py50 { padding-top: 50rpx !important; padding-bottom: 50rpx !important; }
 .py60 { padding-top: 60rpx !important; padding-bottom: 60rpx !important; }
+.py90 { padding-top: 90rpx !important; padding-bottom: 90rpx !important; }
 .py100 { padding-top: 100rpx !important; padding-bottom: 100rpx !important; }
 
+.px0 { padding-right: 0 !important; padding-left: 0 !important; }
 .px { padding-right: 10rpx !important; padding-left: 10rpx !important; }
 .px20 { padding-right: 20rpx !important; padding-left: 20rpx !important; }
 .px30 { padding-right: 30rpx !important; padding-left: 30rpx !important; }

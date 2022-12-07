@@ -1,4 +1,6 @@
 // app.js
+import event from '@codesmiths/event';
+
 App({
   onLaunch() {
 	const _this = this;
@@ -27,6 +29,7 @@ App({
 				// 保存请求到的数据
 				_this.globalData.user = res.data.user;
 				_this.globalData.header = { Authorization: res.header['Authorization'] };
+				event.emit('tokenReady')
 			} else {
 				// 登录失败，进行提示
 				wx.showToast({

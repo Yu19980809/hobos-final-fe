@@ -1,0 +1,32 @@
+.search {
+	height: 86rpx;
+    padding: 0 4rpx;
+    box-sizing: border-box;
+}
+
+.search .bar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 16rpx;
+    border: 2rpx solid rgba(0, 0, 0, .8);
+    border-radius: 16rpx;
+    color: #000;
+    box-sizing: border-box;
+    box-shadow: 0 0 16rpx rgba(251, 146, 158, .4);
+}
+
+.search .cancelBtn {
+    position: absolute;
+    top: 50%;
+    right: 24rpx;
+    transform: translateY(-50%);
+    width: 48rpx;
+    height: 48rpx;
+    z-index: 9;
+}
+
+.search .cancelBtn image {
+    width: 100%;
+    height: 100%;
+}
