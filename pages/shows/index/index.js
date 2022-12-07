@@ -17,7 +17,6 @@ Page({
 	 * navigate to details page
 	 */
 	onNavigateToDetail(e) {
-		console.log('detail', e);
 		// 1. get id of show
 		const { id } = e.currentTarget.dataset;
 
