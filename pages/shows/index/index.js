@@ -9,11 +9,66 @@ Page({
 	 * Page initial data
 	 */
 	data: {
-        isSearch: false
-    },
+		isSearch: false,
+		query: ''
+	},
+
+	/**
+	 * navigate to details page
+	 */
+	onNavigateToDetail(e) {
+		console.log('detail', e);
+		// 1. get id of show
+		const { id } = e.currentTarget.dataset;
+
+		// 2. go to detail page
+		wx.navigateTo({
+			url: `/pages/shows/show/index?id=${id}`
+		})
+	},
+
+	/**
+	 * cancel search
+	 */
+	onCancelSearch() {
+		// 1. clear the search bar
+		// 2. change search status
+		this.setData({ query: '', isSearch: false });
+
+		// 3. fetch all shows
+		this.onFetchShows();
+	},
+	
+	/**
+	 * search shows by query content
+	 */
+	onSearchShow(e) {
+		const _this = this;
+
+		// 1. change search status
+		this.setData({ isSearch: true });
+
+		// 2. get the query content
+		const query = e.detail.value;
+
+		// 3. search by this query content
+		if (query === '') {
+			_this.setData({ isSearch: false });
+			_this.onFetchShows();
+		} else {
+			wx.request({
+				url: `${globalData.baseUrl}/shows?query=${query}`,
+				header: globalData.header,
+				success(res) {
+					// 4. store searched data
+					_this.setData({ shows: res.data.shows });
+				}
+			})
+		}
+	},
     
     /**
-     * 获取所有演出
+     * fetch all shows
      */
     onFetchShows() {
         const _this = this;
