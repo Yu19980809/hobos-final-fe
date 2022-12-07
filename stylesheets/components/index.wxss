@@ -6,3 +6,4 @@
 @import './logo';
 @import './overlay';
 @import './tag';
+@import './search_bar.wxss';
