@@ -3,5 +3,39 @@
 	"setting": {
 		"compileHotReLoad": true,
 		"urlCheck": false
+	},
+	"condition": {
+		"miniprogram": {
+			"list": [
+				{
+					"name": "",
+					"pathName": "pages/shows/new/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/users/edit/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/users/index/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/comedians/index/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				}
+			]
+		}
 	}
 }

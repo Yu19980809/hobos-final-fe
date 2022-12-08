@@ -1,1 +1,19 @@
 /* pages/users/edit/index.wxss */
+
+.user, .comedian_name, .type, .slogan, .club_name {
+	display: flex;
+	margin-top: 20rpx;
+	padding-top: 20rpx;
+}
+
+.type .picker {
+	margin-left: -60rpx;
+}
+
+.des .text {
+	margin-top: -5rpx;
+}
+
+.club_all .des {
+	padding-top: 36rpx;
+}

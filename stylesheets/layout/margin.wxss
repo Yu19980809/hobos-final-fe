@@ -32,6 +32,8 @@
 
 .mr0 { margin-right: 0 !important; }
 .mr { margin-right: 10rpx !important; }
+.mr14 { margin-right: 14rpx !important; }
+.mr16 { margin-right: 16rpx !important; }
 .mr20 { margin-right: 20rpx !important; }
 .mr30 { margin-right: 30rpx !important; }
 .mr40 { margin-right: 40rpx !important; }

@@ -6,6 +6,19 @@ Page({
 	 */
 	data: {
 
+		array: ['Hobo', '演员', '演出发起人'],
+		index: 0,
+
+		formData: {
+			user_name: '',
+			type: '',
+            comedian_name: '',
+            slogan: '',
+            experience: '',
+            club_name: '',
+            description: '',
+        }
+
 	},
 
 	/**
@@ -14,6 +27,13 @@ Page({
 	onLoad(options) {
 
 	},
+
+	bindPickerChange(e) {
+		this.setData({
+		  index: e.detail.value
+		})
+	  },
+
 
 	/**
 	 * Lifecycle function--Called when page is initially rendered

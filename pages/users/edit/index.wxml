@@ -1,2 +1,180 @@
 <!-- 编辑用户信息 -->
-<text>pages/users/edit/index.wxml</text>
+
+<view class="container">
+
+<!-- Avatar Part -->
+
+<view class="avatar">
+	
+</view>
+
+
+<!-- Hobo Info -->
+	<view class="hobo_all">
+
+
+	<!-- Top Part -->
+	<view class="top">
+		<view class="text">
+			个人信息
+		</view>
+	</view>
+
+	<!-- Middle Part -->
+	<view class="middle">
+
+		<view class="user">
+			<image class="icon-l" src="/icons/user.svg"/>
+			<text class="text">用户名</text>
+			<input 
+				class="input"
+				type="text"
+				name="user"
+				placeholder="脱缰野马"
+				value="{{ formData.user }}"
+			/>
+		</view>
+
+		<view class="type">
+			<image class="icon-ml" src="/icons/identity.svg"/>
+			<text class="text">身份</text>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  				<view class="picker">
+      			{{array[index]}}
+    			</view>
+  			</picker>
+			<image class="icon-xs" src="/icons/down.svg"/>
+		</view>
+
+	</view>
+
+	</view>
+
+<!-- Comedian Info -->
+	<view class="comedian_all">
+		
+
+	<!-- Top Part -->
+	<view class="top">
+		<text>演员信息</text>
+	</view>
+
+	<!-- Middle Part -->
+	<view class="middle">
+		<view class="comedian_name">
+			<image class="icon-l" src="/icons/user.svg"/>
+			<text class="text">艺名</text>
+			<input 
+				class="input"
+				type="text"
+				name="user"
+				placeholder="脱缰野马"
+				value="{{ formData.comedian_name }}"
+			/>
+	</view>
+
+	<view class="type">
+		<image class="icon-ml" src="/icons/identity.svg"/>
+		<text class="text">身份</text>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+			<view class="picker">
+			{{array[index]}}
+			</view>
+		</picker>
+		<image class="icon-xs" src="/icons/down.svg"/>
+	</view>
+
+	<view class="slogan">
+		<image class="icon-l" src="/icons/slogan.svg"/>
+		<text class="text">一句简介</text>
+		<input 
+			class="input"
+			type="text"
+			name="user"
+			placeholder="脱缰野马..."
+			value="{{ formData.slogan }}"
+		/>
+	</view>
+
+	<view class="des">
+		<view class="des-top">
+			<image class="icon-m" src="/icons/stage.svg"/>
+			<text class="text">舞台经验</text>
+		</view>
+        
+		<input 
+			class="input"
+			type="text"
+			name="description"
+			placeholder="简介..."
+			value="{{ formData.experience }}"
+		/>  
+    </view>
+
+	</view>
+
+	</view>
+
+
+<!-- Club Part -->
+	<view class="club_all">
+		
+
+	<!-- Top Part -->
+	<view class="top">
+		<text>俱乐部信息</text>
+	</view>
+
+	<!-- Middle Part -->
+	<view class="middle">
+		<view class="club_name">
+			<image class="icon-l" src="/icons/club.svg"/>
+			<text class="text">俱乐部名</text>
+			<input 
+				class="input"
+				type="text"
+				name="user"
+				placeholder="脱缰野马"
+				value="{{ formData.club_name }}"
+			/>
+		</view>
+
+		<view class="type">
+			<image class="icon-ml" src="/icons/identity.svg"/>
+			<text class="text">身份</text>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+			<view class="picker">
+				{{array[index]}}
+			</view>
+			</picker>
+			<image class="icon-xs" src="/icons/down.svg"/>
+		</view>
+
+		<view class="des">
+			<view class="des-top">
+				<image class="icon-m" src="/icons/description.svg"/>
+				<text class="text">俱乐部简介</text>
+			</view>
+        
+			<input 
+				class="input"
+				type="text"
+				name="description"
+				placeholder="简介..."
+				value="{{ formData.description }}"
+			/>  
+    	</view>
+	</view>
+
+	</view>
+
+
+<!-- Bottom Part -->
+
+	<view class="bottom">
+		<button class="btn">
+		<text>保存信息</text>
+		</button>
+	</view>
+
+</view>
