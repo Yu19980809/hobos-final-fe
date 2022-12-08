@@ -1,2 +1,78 @@
 <!-- 演出详情 -->
-<text>pages/shows/show/index.wxml</text>
+<view class="container blackr">
+    <!-- poster -->
+	<view class="poster my50 mx0">
+		<image
+            src="{{ show.poster }}"
+            mode="aspectFill"
+            class="w100 h100 radius20"
+        />
+	</view>
+
+    <!-- name -->
+    <view class="py30 px0">
+        <view class="club_name mb20 opacity5 f32">{{ show.club_name }}</view>
+        <view class="show_name f40 bold">{{ show.name }}</view>
+    </view>
+
+    <!-- datetime -->
+    <view class="datetime flex justify-between py40 px0">
+        <view class="date w50">
+            <view class="key mb16 f32 opacity5">日期</view>
+            <view class="value bold f40 pt20">{{ show.date }}</view>
+        </view>
+
+        <view class="time w50">
+            <view class="key mb16 f32 opacity5">时间</view>
+            <view class="value bold f40 pt20">{{ show.start_time }}-{{ show.end_time }}</view>
+        </view>
+    </view>
+
+    <!-- address -->
+    <view class="address flex pt30">
+        <image src="/images/address.svg" mode="aspectFill" class="mr30 opacity5"/>
+        <text class="f36">{{ show.address }}</text>
+    </view>
+
+    <!-- description -->
+    <view class="description py50 px0">
+        <view class="title mb20 f32 bold">演出介绍</view>
+        <view class="content f30">{{ show.description }}</view>
+    </view>
+
+    <!-- comedian -->
+    <view class="comedian py40 px0">
+        <view class="title mb20 f32 bold">登场演员</view>
+        <view class="avatars flex items-center">
+            <image
+                src="{{ comedian.avatar }}"
+                mode="aspectFill"
+                class="circle mr20"
+                wx:for="{{ show.comedians }}"
+                wx:for-item="comedian"
+                wx:key="index"
+            />
+        </view>
+    </view>
+
+    <!-- member -->
+    <view class="member py40 px0" wx:if="{{ show && show.members && show.members.length !== 0 }}">
+        <view class="title mb20 f32 bold">参与人员</view>
+        <view class="avatars flex items-center">
+            <image
+                src="{{ member.avatar }}"
+                mode="aspectFill"
+                class="circle mr20"
+                wx:for="{{ show.members }}"
+                wx:for-item="member"
+                wx:key="index"
+            />
+        </view>
+    </view>
+
+    <!-- btns -->
+    <view class="btns flex justify-around items-center pb40">
+        <view class="btn-pink" wx:if="{{ isBooked }}" bindtap="onCancel">取消参加</view>
+        <view class="btn-black" wx:else bindtap="onBook">我要参加</view>
+    </view>
+</view>

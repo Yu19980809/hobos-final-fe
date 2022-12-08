@@ -10,6 +10,7 @@
 
 .mb0 { margin-bottom: 0 !important; }
 .mb { margin-bottom: 10rpx !important; }
+.mb16 { margin-bottom: 16rpx !important; }
 .mb20 { margin-bottom: 20rpx !important; }
 .mb30 { margin-bottom: 30rpx !important; }
 .mb40 { margin-bottom: 40rpx !important; }
@@ -57,6 +58,7 @@
 .my60 { margin-top: 60rpx !important; margin-bottom: 60rpx !important; }
 .my100 { margin-top: 100rpx !important; margin-bottom: 100rpx !important; }
 
+.mx0 { margin-right: 0 !important; margin-left: 0 !important; }
 .mx { margin-right: 10rpx !important; margin-left: 10rpx !important; }
 .mx20 { margin-right: 20rpx !important; margin-left: 20rpx !important; }
 .mx30 { margin-right: 30rpx !important; margin-left: 30rpx !important; }

@@ -52,7 +52,7 @@
                     </view>
 
                     <view class="card-top-right">
-                        <image src="https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9zdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill"/>
+                        <image src="{{ show.poster }}" mode="aspectFill"/>
                     </view>
                 </view>
 
