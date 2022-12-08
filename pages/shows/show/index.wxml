@@ -71,7 +71,7 @@
     </view>
 
     <!-- btns -->
-    <view class="btns flex justify-around items-center pb40">
+    <view class="btns flex justify-around items-center pb40" wx:if="{{ !isExpired }}">
         <view class="btn-pink" wx:if="{{ isBooked }}" bindtap="onCancel">取消参加</view>
         <view class="btn-black" wx:else bindtap="onBook">我要参加</view>
     </view>

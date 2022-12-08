@@ -1,1 +1,34 @@
 /* pages/bookings/index/index.wxss */
+.expired .title {
+    height: 58rpx;
+    line-height: 58rpx;
+}
+
+.expired .card {
+    background-color: #D9D9D9;
+}
+
+.expired .card .time {
+    color: #848484;
+}
+
+.expired .card .name {
+    color: #1F1F1F;
+}
+
+.expired .card .card-bottom {
+    color: #848484;
+}
+
+.expired .card .card-top-right {
+    position: relative;
+}
+
+.expired .card .card-top-right .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
