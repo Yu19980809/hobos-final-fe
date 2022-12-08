@@ -20,6 +20,13 @@
 					"query": "",
 					"launchMode": "default",
 					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/shows/management/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
 				}
 			]
 		}

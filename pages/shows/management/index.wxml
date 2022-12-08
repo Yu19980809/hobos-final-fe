@@ -1,2 +1,51 @@
 <!-- 演出管理 -->
-<text>pages/shows/management/index.wxml</text>
+<view class="container white">
+	<!-- create btn -->
+	<view class="create flex justify-center items-center my50 mx0 bg-black f40 bold">
+		<image src="/images/plus.svg" mode="aspectFill" class="mr20"/>
+		<text>创建演出</text>
+	</view>
+
+	<!-- upcoming shows -->
+	<view class="upcoming">
+		<view class="card">
+			<view class="card-top">
+				<view class="card-top-left">
+					<view class="time">
+						<!-- {{ show.date }} {{ show.start_time }}-{{ show.end_time }} -->
+						2022/12/12 19:00-21:00
+					</view>
+
+					<view class="name">
+						<view class="club-name">
+							<!-- {{ show.club_name }} -->
+							快乐源泉
+						</view>
+
+						<view class="show-name">
+							<!-- {{ show.name }} -->
+							圣诞专题
+						</view>
+					</view>
+				</view>
+
+				<view class="card-top-right">
+					<!-- <image src="{{ show.poster }}" mode="aspectFill" class="radius20"/> -->
+					<image src="https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9zdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" class="radius20"/> 
+				</view>
+			</view>
+
+			<view class="card-bottom">
+				<!-- {{ show.address }} -->
+				昌平路
+			</view>
+		</view>
+
+		<view class="actions bg-black">
+			<view class="btn-normal">编辑</view>
+			<view class="btn-normal">删除</view>
+		</view>
+	</view>
+
+	<!-- expired shows -->
+</view>

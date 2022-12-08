@@ -1,1 +1,18 @@
 /* pages/shows/management/index.wxss */
+
+/* create btn */
+.create {
+    height: 100rpx;
+    border-radius: 60rpx;
+}
+
+.create image {
+    width: 58rpx;
+    height: 58rpx;
+}
+
+/* actions */
+.actions {
+	width: 600rpx;
+	height: 100rpx;
+}
