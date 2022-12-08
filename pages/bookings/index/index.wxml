@@ -1,2 +1,87 @@
 <!-- 参与的演出（booking history） -->
-<text>pages/bookings/index/index.wxml</text>
+<view class="container">
+	<view wx:if="{{ (upcomingShows && upcomingShows.length !== 0) || (expiredShows && expiredShows.length !== 0) }}">
+		<view class="upcoming py20 px0" wx:if="{{ upcomingShows && upcomingShows.length !== 0 }}">
+			<view
+				class="card"
+				wx:for="{{ upcomingShows }}"
+				wx:for-item="show"
+				wx:key="index"
+				data-id="{{ show.id }}"
+				bindtap="onNavigateToDetailUpcoming"
+			>
+				<view class="card-top">
+					<view class="card-top-left">
+						<view class="time">
+							{{ show.date }} {{ show.start_time }}-{{ show.end_time }}
+						</view>
+
+						<view class="name">
+							<view class="club-name">
+								{{ show.club_name }}
+							</view>
+
+							<view class="show-name">
+								{{ show.name }}
+							</view>
+						</view>
+					</view>
+
+					<view class="card-top-right">
+						<image src="{{ show.poster }}" mode="aspectFill"/>
+					</view>
+				</view>
+
+				<view class="card-bottom">
+					{{ show.address }}
+				</view>
+			</view>
+		</view>
+
+		<view class="expired" wx:if="{{ expiredShows && expiredShows.length !== 0 }}">
+			<!-- title -->
+			<view class="title f36 mx0 mt60 mb40 bold">往期演出</view>
+
+			<!-- card -->
+			<view
+				class="card"
+				wx:for="{{ expiredShows }}"
+				wx:for-item="show"
+				wx:key="index"
+				data-id="{{ show.id }}"
+				bindtap="onNavigateToDetailExpired"
+			>
+				<view class="card-top">
+					<view class="card-top-left">
+						<view class="time">
+							{{ show.date }} {{ show.start_time }}-{{ show.end_time }}
+						</view>
+
+						<view class="name opacity5">
+							<view class="club-name">
+								{{ show.club_name }}
+							</view>
+
+							<view class="show-name">
+								{{ show.name }}
+							</view>
+						</view>
+					</view>
+
+					<view class="card-top-right">
+						<image src="{{ show.poster }}" mode="aspectFill"/>
+						<view class="mask radius20"></view>
+					</view>
+				</view>
+
+				<view class="card-bottom">
+					{{ show.address }}
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view wx:else>
+		<image src="/images/no-show.png" mode="aspectFit"/>
+	</view>
+</view>

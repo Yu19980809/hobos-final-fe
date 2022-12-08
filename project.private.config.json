@@ -11,8 +11,15 @@
 					"name": "",
 					"pathName": "pages/shows/show/index",
 					"query": "",
-					"scene": null,
-					"launchMode": "default"
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/bookings/index/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
 				}
 			]
 		}

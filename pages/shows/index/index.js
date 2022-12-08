@@ -78,7 +78,7 @@ Page({
             success(res) {
                 wx.hideLoading();
                 _this.setData({ shows: res.data.shows })
-            }
+			}
         })
     },
 

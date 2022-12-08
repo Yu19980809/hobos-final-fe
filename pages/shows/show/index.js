@@ -129,11 +129,12 @@ Page({
 	 * Lifecycle function--Called when page load
 	 */
 	onLoad(options) {
-        // 1. get show_id
-        const showId = options.id;
+        // 1. get show_id and expired status
+        const { id, isExpired } = options;
 
         // 2. get info about this show
-        this.onFetchShow(showId);
+		this.onFetchShow(id);
+		this.setData({ isExpired: isExpired === "true" });
 	},
 
 	/**
