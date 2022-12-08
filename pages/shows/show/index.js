@@ -34,7 +34,6 @@ Page({
         // 1. find the booking id
         const _this = this;
         const id = this.data.show.booking.id || this.data.bookingId;
-        console.log('booing id', id);
 
         // 2. delete this booking
         wx.request({

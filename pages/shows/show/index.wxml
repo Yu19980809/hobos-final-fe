@@ -3,7 +3,7 @@
     <!-- poster -->
 	<view class="poster my50 mx0">
 		<image
-            src="https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9zdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            src="{{ show.poster }}"
             mode="aspectFill"
             class="w100 h100 radius20"
         />
@@ -45,10 +45,11 @@
         <view class="title mb20 f32 bold">登场演员</view>
         <view class="avatars flex items-center">
             <image
-                src="https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9zdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                src="{{ comedian.avatar }}"
                 mode="aspectFill"
                 class="circle mr20"
                 wx:for="{{ show.comedians }}"
+                wx:for-item="comedian"
                 wx:key="index"
             />
         </view>
@@ -59,10 +60,11 @@
         <view class="title mb20 f32 bold">参与人员</view>
         <view class="avatars flex items-center">
             <image
-                src="https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9zdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                src="{{ member.avatar }}"
                 mode="aspectFill"
                 class="circle mr20"
                 wx:for="{{ show.members }}"
+                wx:for-item="member"
                 wx:key="index"
             />
         </view>

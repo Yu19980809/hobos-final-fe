@@ -44,5 +44,5 @@
     font-weight: bold;
     color: #000;
     letter-spacing: 8rpx;
-    box-shadow: 8rpx 8rpx 16rpx rgba(251, 146, 158, .4);
+    box-shadow: 8rpx 8rpx 16rpx rgba(0, 0, 0, 0.4);
 }
