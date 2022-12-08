@@ -20,3 +20,29 @@
   background-color: var(--black);
   color: var(--white);
 }
+
+.btn-black {
+    width: 300rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    background-color: #000;
+    text-align: center;
+    line-height: 80rpx;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 8rpx;
+    box-shadow: 8rpx 8rpx 16rpx rgba(251, 146, 158, .4);
+}
+
+.btn-pink {
+    width: 300rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    background-color: #FFDFDF !important;
+    text-align: center;
+    line-height: 80rpx;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 8rpx;
+    box-shadow: 8rpx 8rpx 16rpx rgba(251, 146, 158, .4);
+}

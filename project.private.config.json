@@ -3,5 +3,18 @@
 	"setting": {
 		"compileHotReLoad": true,
 		"urlCheck": false
+	},
+	"condition": {
+		"miniprogram": {
+			"list": [
+				{
+					"name": "",
+					"pathName": "pages/shows/show/index",
+					"query": "",
+					"scene": null,
+					"launchMode": "default"
+				}
+			]
+		}
 	}
 }
