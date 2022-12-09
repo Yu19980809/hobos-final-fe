@@ -12,7 +12,7 @@
             placeholder="搜索"
 		>
 		<view class="cancelBtn">
-			<image src="/icons/cross.svg"/>
+			<image src="/images/cross.svg"/>
 		</view>
 		</input>
 	</view>
@@ -27,7 +27,7 @@
     	</view>
   	</picker>
 
-    <image class="icon-s" src="/icons/down.svg"/>
+    <image class="icon-s" src="/images/down.svg"/>
 </view>
 
 

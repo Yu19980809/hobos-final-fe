@@ -12,7 +12,7 @@
 	<view class="middle">
 
 		<view class="club">
-			<image class="icon-l" src="/icons/club.svg"/>
+			<image class="icon-l" src="/images/club.svg"/>
 			<view class="text">
 				俱乐部名
 			</view>
@@ -26,7 +26,7 @@
 		</view>
 
 		<view class="name">
-			<image class="icon-l" src="/icons/mic.svg"/>
+			<image class="icon-l" src="/images/mic.svg"/>
 			<view class="text">
 				演出标题
 			</view>
@@ -40,7 +40,7 @@
 		</view>
 
 		<view class="date">
-			<image class="icon-mm" src="/icons/calendar.svg"/>
+			<image class="icon-mm" src="/images/calendar.svg"/>
 			<view class="text">
 				演出日期
 			</view>
@@ -49,11 +49,11 @@
 				{{s2}}
 				</view>
         	</picker>
-			<image class="icon-xs" src="/icons/down.svg"/>
+			<image class="icon-xs" src="/images/down.svg"/>
 		</view>
 
 		<view class="time">
-			<image class="icon-mm" src="/icons/time.svg"/>
+			<image class="icon-mm" src="/images/time.svg"/>
 			<view class="text">
 			演出时间
 			</view>
@@ -62,7 +62,7 @@
 				{{ t2 }}
 				</view>
 			</picker>
-			<image class="icon-xs" src="/icons/down.svg"/>
+			<image class="icon-xs" src="/images/down.svg"/>
 		</view>
 
 		<view class="comedian">
@@ -70,7 +70,7 @@
 		</view>
 
 		<view class="address">
-			<image class="icon-l" src="/icons/address.svg"/>
+			<image class="icon-l" src="/images/address.svg"/>
 			<view class="text">
 			演出地址
 			</view>
@@ -85,7 +85,7 @@
 
 		<view class="des">
 			<view class="des-top">
-				<image class="icon-m" src="/icons/description.svg"/>
+				<image class="icon-m" src="/images/description.svg"/>
 				<view class="text">
 					演出介绍
 				</view>
@@ -107,7 +107,7 @@
 	<view class="bottom">
 		<button class="btn">
 		<view style="display: flex">
-			<image class="icon-s" src="/icons/add.svg"/>
+			<image class="icon-s" src="/images/add.svg"/>
 			<view style="margin-left: 5rpx;">创建演出</view>
 		</view>
 		</button>
