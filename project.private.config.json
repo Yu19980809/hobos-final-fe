@@ -9,28 +9,21 @@
 			"list": [
 				{
 					"name": "",
-					"pathName": "pages/shows/new/index",
+					"pathName": "pages/shows/show/index",
 					"query": "",
 					"launchMode": "default",
 					"scene": null
 				},
 				{
 					"name": "",
-					"pathName": "pages/users/edit/index",
+					"pathName": "pages/bookings/index/index",
 					"query": "",
 					"launchMode": "default",
 					"scene": null
 				},
 				{
 					"name": "",
-					"pathName": "pages/users/index/index",
-					"query": "",
-					"launchMode": "default",
-					"scene": null
-				},
-				{
-					"name": "",
-					"pathName": "pages/comedians/index/index",
+					"pathName": "pages/shows/management/index",
 					"query": "",
 					"launchMode": "default",
 					"scene": null

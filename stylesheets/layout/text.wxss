@@ -11,6 +11,7 @@
 .f30 { font-size: 30rpx; }
 .f32 { font-size: 32rpx; }
 .f36 { font-size: 36rpx; }
+.f40 { font-size: 36rpx; }
 .f48 { font-size: 48rpx; }
 .f60 { font-size: 60rpx; }
 .f72 { font-size: 72rpx; }
