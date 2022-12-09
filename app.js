@@ -44,8 +44,8 @@ App({
   },
 
   globalData: {
-	// baseUrl: 'http://localhost:3000/api/v1',
-	baseUrl: 'https://hobos.wogengapp.cn/api/v1',
+	baseUrl: 'http://localhost:3000/api/v1',
+	// baseUrl: 'https://hobos.wogengapp.cn/api/v1',
 	user: null,
 	header: null
   }
