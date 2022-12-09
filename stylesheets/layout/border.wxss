@@ -9,6 +9,7 @@
 
 .bn { border: 0px !important; }
 .b2 { border-width: 2rpx; }
+.b3 { border-width: 3rpx; }
 .b4 { border-width: 4rpx; }
 .b6 { border-width: 6rpx; }
 .b8 { border-width: 8rpx; }

@@ -1,2 +1,48 @@
 <!-- 演员列表 -->
-<text>pages/comedians/index/index.wxml</text>
+<view class="container">
+
+<!-- Top Part -->
+<view class="s_top">
+
+	<!-- search bar -->
+	<view class="search">
+		<input
+			type="text"
+			class="bar"
+            placeholder="搜索"
+		>
+		<view class="cancelBtn">
+			<image src="/icons/cross.svg"/>
+		</view>
+		</input>
+	</view>
+</view>
+
+<!-- Middle Part -->
+
+<view class="filter flex">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  		<view class="picker">
+      		{{array[index]}}
+    	</view>
+  	</picker>
+
+    <image class="icon-s" src="/icons/down.svg"/>
+</view>
+
+
+<!-- Bottom Part -->
+
+<view class="comedian_card">
+    <view class="pic">
+		<image class="image" src="https://hobos-final.oss-cn-shanghai.aliyuncs.com/default-avatar.jpg" mode="scaleToFill"/>
+	</view>    
+    <view class="middle_c">
+        <text class="comedian_name">艺名</text>
+        <text class="des_c">一句简介：脱缰野马...</text>
+    </view>
+    <view class="followButton">关注</view>
+</view>
+
+
+</view>

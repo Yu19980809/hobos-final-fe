@@ -1,1 +1,32 @@
 /* pages/shows/new/index.wxss */
+
+.club, .name, .date, .time, .address {
+	display: flex;
+	margin-top: 20rpx;
+	padding-top: 20rpx;
+}
+
+.date .text {
+	padding-top: 8rpx;
+}
+
+.time {
+	padding-top: 28rpx;
+}
+
+.time .text {
+	padding-top: 8rpx;
+}
+
+.middle .picker {
+	margin-top: 4rpx;
+}
+
+.des .text {
+	margin-top: -5rpx;
+}
+
+.btn {
+	display: flex;
+	justify-content: space-between;
+}

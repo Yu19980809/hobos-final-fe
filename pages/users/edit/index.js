@@ -5,7 +5,23 @@ Page({
 	 * Page initial data
 	 */
 	data: {
+		array: ['Hobo', '演员', '演出发起人'],
+		index: 0,
+		formData: {
+			user_name: '',
+			type: '',
+            comedian_name: '',
+            slogan: '',
+            experience: '',
+            club_name: '',
+			description: '',
+		}
+	},
 
+	bindPickerChange(e) {
+		this.setData({
+		  index: e.detail.value
+		})
 	},
 
 	/**

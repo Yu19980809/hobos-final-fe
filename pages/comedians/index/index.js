@@ -5,7 +5,8 @@ Page({
 	 * Page initial data
 	 */
 	data: {
-
+		index: 0,
+		array: [ '演员', '俱乐部' ]
 	},
 
 	/**
@@ -14,6 +15,12 @@ Page({
 	onLoad(options) {
 
 	},
+
+	bindPickerChange(e) {
+		this.setData({
+		  index: e.detail.value
+		})
+    },
 
 	/**
 	 * Lifecycle function--Called when page is initially rendered

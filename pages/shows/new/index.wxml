@@ -1,2 +1,116 @@
 <!-- 创建演出 -->
-<text>pages/shows/new/index.wxml</text>
+<view class="container">
+
+<!-- Top Part -->
+	<view class="top">
+		<view class="text">
+			演出信息
+		</view>
+	</view>
+
+<!-- Middle Part -->
+	<view class="middle">
+
+		<view class="club">
+			<image class="icon-l" src="/icons/club.svg"/>
+			<view class="text">
+				俱乐部名
+			</view>
+			<input 
+				class="input"
+				type="text"
+				name="club_name"
+				placeholder="俱乐部名称..."
+				value="{{ formData.club_name }}"
+        	/>
+		</view>
+
+		<view class="name">
+			<image class="icon-l" src="/icons/mic.svg"/>
+			<view class="text">
+				演出标题
+			</view>
+			<input 
+				class="input"
+				type="text"
+				name="name"
+				placeholder="演出标题..."
+				value="{{ formData.name }}"
+			/>
+		</view>
+
+		<view class="date">
+			<image class="icon-mm" src="/icons/calendar.svg"/>
+			<view class="text">
+				演出日期
+			</view>
+			<picker class="picker" mode="date" value="{{s2}}" start="2000-01-01" end="2099-12-31" bindchange="bindDateChange">
+				<view class="picker" value="{{ formData.date }}">
+				{{s2}}
+				</view>
+        	</picker>
+			<image class="icon-xs" src="/icons/down.svg"/>
+		</view>
+
+		<view class="time">
+			<image class="icon-mm" src="/icons/time.svg"/>
+			<view class="text">
+			演出时间
+			</view>
+			<picker class="picker" mode="time" value="{{t2}}" start="00:00" end="23:59" bindchange="bindTimeChange" >
+				<view class="picker">
+				{{ t2 }}
+				</view>
+			</picker>
+			<image class="icon-xs" src="/icons/down.svg"/>
+		</view>
+
+		<view class="comedian">
+
+		</view>
+
+		<view class="address">
+			<image class="icon-l" src="/icons/address.svg"/>
+			<view class="text">
+			演出地址
+			</view>
+			<input 
+				class="input"
+				type="text"
+				name="address"
+				placeholder="南京西路100号..."
+				value="{{ formData.address }}"
+			/>
+    	</view>
+
+		<view class="des">
+			<view class="des-top">
+				<image class="icon-m" src="/icons/description.svg"/>
+				<view class="text">
+					演出介绍
+				</view>
+			</view>
+
+			<input 
+				class="input"
+				type="text"
+				name="description"
+				placeholder="简介..."
+				value="{{ formData.description }}"
+			/>  
+    	</view>
+
+	</view>
+
+<!-- Bottom Part -->
+
+	<view class="bottom">
+		<button class="btn">
+		<view style="display: flex">
+			<image class="icon-s" src="/icons/add.svg"/>
+			<view style="margin-left: 5rpx;">创建演出</view>
+		</view>
+		</button>
+	</view>
+
+</view>

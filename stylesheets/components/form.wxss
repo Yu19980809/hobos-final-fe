@@ -1,0 +1,71 @@
+container {
+	font-size: 36rpx;
+	font-weight: bold;
+}
+
+.top {
+	width: 70vw;
+	border-bottom: 3rpx solid var(--black);
+	margin-left: 10vw;
+	padding-top: 80rpx;
+}
+
+.middle {
+	width: 70vw;
+	margin-left: 10vw;
+}
+
+.middle .text {
+	width: 240rpx;
+	margin-left: 10rpx;
+    padding-top: 14rpx;
+}
+
+.middle .picker {
+	margin-top: 10rpx;
+	margin-left: -28rpx;
+}
+
+.icon-xs {
+	padding-top: 20rpx;
+	padding-left: 8rpx;
+}
+
+.middle .input {
+	font-weight: normal;
+	margin-left: 20rpx;
+    padding-top: 20rpx;
+}
+
+.des {
+	display: list-item;
+	padding-top: 20rpx;
+	margin-top: 20rpx;
+}
+
+.des-top {
+	display: flex;
+}
+
+.des .input {
+	font-size: 24rpx;
+	font-weight: normal;
+	border: 3rpx solid var(--black);
+	padding-top: 4rpx;
+	padding-left: 10rpx;
+    padding-bottom: 100rpx;
+    margin-top: 20rpx;
+	margin-left: 50rpx;
+	margin-bottom: 20rpx;
+    display: flex;
+    align-items: baseline;
+}
+
+.des .text {
+    margin-left: 10rpx;
+    padding-top: 6rpx;
+}
+
+.btn {
+	margin: 6vh;
+}

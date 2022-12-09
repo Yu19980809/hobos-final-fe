@@ -74,7 +74,7 @@ Page({
 
         wx.request({
             url: `${globalData.baseUrl}/shows`,
-            header: globalData.header,
+			header: globalData.header,
             success(res) {
                 wx.hideLoading();
                 _this.setData({ shows: res.data.shows })
