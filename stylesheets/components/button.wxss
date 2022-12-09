@@ -46,3 +46,15 @@
     letter-spacing: 8rpx;
     box-shadow: 8rpx 8rpx 16rpx rgba(0, 0, 0, 0.4);
 }
+
+.btn-normal {
+	width: 230rpx;
+	height: 65rpx;
+	border-radius: 16rpx;
+	background-color: #fff;
+	text-align: center;
+	line-height: 65rpx;
+	color: #000;
+	font-weight: bold;
+	letter-spacing: 8rpx;
+}

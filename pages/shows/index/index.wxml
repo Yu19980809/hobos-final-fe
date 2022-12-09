@@ -62,8 +62,8 @@
             </view>
         </view>
         <view wx:else>
-            <image src="/images/no-result.png" mode="aspectFit" wx:if="{{ isSearch }}"/>
-            <image src="/images/no-show.png" mode="aspectFit" wx:else/>
+            <image src="/images/no-result.jpg" mode="aspectFit" wx:if="{{ isSearch }}"/>
+            <image src="/images/no-show.jpg" mode="aspectFit" wx:else/>
         </view>
 	</view>
 </view>
