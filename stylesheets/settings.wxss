@@ -23,6 +23,7 @@ page {
   --green: #76D5AB;
   --tab: #6d6d6d;
   --tabCur: #FF5100;
+  --themecolor: #FB929E;
   --bottomSafe: env(safe-area-inset-bottom);
 
   /* fonts */
@@ -46,10 +47,11 @@ page {
 }
 
 .container {
-  /* padding: 60rpx 20rpx 0 20rpx; */
   padding: 24rpx 50rpx;
   box-sizing: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  letter-spacing: 4rpx;
+  text-shadow: 4rpx 4rpx 16rpx rgba(251, 146, 158, 0.4);
 }

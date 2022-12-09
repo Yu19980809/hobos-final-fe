@@ -16,9 +16,10 @@
   padding-bottom: 16rpx;
   padding-left: 40rpx;
   padding-right: 40rpx;
-  border-radius:0rpx;
+  border-radius: 48rpx;
   background-color: var(--black);
   color: var(--white);
+  box-shadow: 0 0 16rpx var(--themecolor);
 }
 
 .btn-black {

@@ -22,7 +22,7 @@ App({
 
 	wx.request({
 		url: `${_this.globalData.baseUrl}/login`,
-		method: 'POST',
+		method: "POST",
 		data: { code },
 		success(res) {
 			if (res.statusCode === 200) {
@@ -42,8 +42,8 @@ App({
   },
 
   globalData: {
-	baseUrl: 'http://localhost:3000/api/v1',
-	// baseUrl: 'https://hobos.wogengapp.cn/api/v1',
+	// baseUrl: 'http://localhost:3000/api/v1',
+	baseUrl: 'https://hobos.wogengapp.cn/api/v1',
 	user: null,
 	header: null
   }

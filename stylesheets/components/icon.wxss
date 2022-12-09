@@ -18,9 +18,24 @@
   height:50rpx;
 }
 
+.icon-mm {
+  width:55rpx;
+  height:55rpx;
+}
+
 .icon-ml {
   width:60rpx;
   height:60rpx;
+}
+
+.icon-mll {
+    width:65rpx;
+    height:65rpx;
+  }
+
+.icon-ll {
+  width: 70rpx;
+  height: 70rpx;
 }
 
 .icon-l {
