@@ -1,4 +1,6 @@
 // pages/users/index/index.js
+const globalData = getApp().globalData;
+
 Page({
 
 	/**
@@ -6,6 +8,24 @@ Page({
 	 */
 	data: {
 
+	},
+
+	/**
+	 * go to booking history
+	 */
+	onNavigateToBookingHistory() {
+		wx.navigateTo({
+			url: '/pages/bookings/index/index',
+		})
+	},
+
+	/**
+	 * go to show management
+	 */
+	onNavigateToShowManagement() {
+		wx.navigateTo({
+			url: '/pages/shows/management/index',
+		})
 	},
 
 	/**
@@ -26,7 +46,7 @@ Page({
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
-
+		this.setData({ user: globalData.user });
 	},
 
 	/**

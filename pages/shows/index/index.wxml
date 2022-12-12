@@ -25,10 +25,10 @@
         </view>
 
         <!-- card -->
-        <view wx:if="{{ shows && shows.length !== 0 }}">
+        <view wx:if="{{ upcomingShows && upcomingShows.length !== 0 }}">
             <view
                 class="card"
-                wx:for="{{ shows }}"
+                wx:for="{{ upcomingShows}}"
                 wx:for-item="show"
                 wx:key="index"
 				data-id="{{ show.id }}"

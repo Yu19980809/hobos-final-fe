@@ -1,11 +1,9 @@
 <!-- 编辑用户信息 -->
-
 <view class="container">
 
 <!-- Avatar Part -->
 
 <view class="avatar">
-	
 </view>
 
 
@@ -52,7 +50,6 @@
 
 <!-- Comedian Info -->
 	<view class="comedian_all">
-		
 
 	<!-- Top Part -->
 	<view class="top">
@@ -101,7 +98,6 @@
 			<image class="icon-m" src="/icons/stage.svg"/>
 			<text class="text">舞台经验</text>
 		</view>
-        
 		<input 
 			class="input"
 			type="text"
@@ -118,7 +114,6 @@
 
 <!-- Club Part -->
 	<view class="club_all">
-		
 
 	<!-- Top Part -->
 	<view class="top">
@@ -155,7 +150,6 @@
 				<image class="icon-m" src="/icons/description.svg"/>
 				<text class="text">俱乐部简介</text>
 			</view>
-        
 			<input 
 				class="input"
 				type="text"
@@ -178,3 +172,4 @@
 	</view>
 
 </view>
+

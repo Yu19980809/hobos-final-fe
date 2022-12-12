@@ -1,20 +1,32 @@
 <!-- 演员列表 -->
-
 <view class="container">
 
 <!-- Top Part -->
 <view class="s_top">
-    
 	<!-- search bar -->
-	<view class="search">
+	<!-- <view class="search">
 		<input
 			type="text"
 			class="bar"
             placeholder="搜索"
 		>
 		<view class="cancelBtn">
-			<image src="/icons/cross.svg"/>
+			<image src="/images/cross.svg"/>
 		</view>
+		</input>
+	</view> -->
+	<!-- search bar -->
+	<view class="search">
+		<input
+			type="text"
+			class="bar"
+            placeholder="搜索"
+			value="{{ query }}"
+		>
+
+			<view class="cancelBtn">
+				<image src="/images/cross.svg" mode="aspectFill"/>
+			</view>
 		</input>
 	</view>
 </view>
@@ -28,7 +40,7 @@
     	</view>
   	</picker>
 
-    <image class="icon-s" src="/icons/down.svg"/>
+    <image class="icon-s" src="/images/down.svg"/>
 </view>
 
 
@@ -44,6 +56,5 @@
     </view>
     <view class="followButton">关注</view>
 </view>
-
 
 </view>

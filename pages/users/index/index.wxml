@@ -2,92 +2,104 @@
 
 <view class="container">
 
-<!-- Top Part -->
+	<!-- Info Part -->
 
-<view class="avatar text-center">
-	<view class="pic">
-		<image class="image" src="https://hobos-final.oss-cn-shanghai.aliyuncs.com/default-avatar.jpg" mode="scaleToFill"/>
+	<view class="avatar text-center">
+		<view class="pic">
+			<image class="image" src="{{ user.avatar }}" mode="scaleToFill"/>
+		</view>
+		<view class="name">
+			{{ user.nickname }}
+		</view>
+		<view class="role">
+			<text wx:if="{{ user.role === 'audience' }}">观众</text>
+			<text wx:if="{{ user.role === 'comedian' }}">演员</text>
+			<text wx:if="{{ user.role === 'holder' }}">俱乐部主理人</text>
+		</view>
+		<view class="followers">
+			<text class="text">关注人数：365</text>
+		</view>
 	</view>
-	<view class="name">
-		用户名
+
+	<!-- ACtions Part -->
+
+	<view class="tabs pa50">
+		<!-- 我的档案 -->
+		<view class="profile flex" wx:if="{{ user.role === 'comedian' }}">
+			<view class="left">
+				<image class="icon-mll mr16" src="/images/profile.svg"/>
+				<text class="text">我的档案</text>
+			</view>
+
+			<view class="right">
+				<image class="icon-mm" src="/images/right.svg"/>
+			</view>
+		</view>
+
+		<!-- 演出历史 -->
+		<view class="history flex pt20">
+			<view class="left">
+				<image class="icon-ml mr20" src="/images/stage.svg"/>
+				<text class="text">演出历史</text>
+			</view>
+
+			<view class="right" bindtap="onNavigateToBookingHistory">
+				<image class="icon-mm" src="/images/right.svg"/>
+			</view>
+		</view>
+
+		<!-- 我的关注 -->
+		<view class="follow flex pt20">
+			<view class="left">
+				<image class="icon-ll mr14" src="/images/like.svg"/>
+				<text class="text">我的关注</text>
+			</view>
+
+			<view class="right">
+				<image class="icon-mm" src="/images/right.svg"/>
+			</view>
+		</view>
+
+		<!-- 演出管理 -->
+		<view class="manage flex pt20" wx:if="{{ user.role === 'holder' }}">
+			<view class="left">
+				<image class="icon-ll mr14" src="/images/manage.svg"/>
+				<text class="text">演出管理</text>
+			</view>
+
+			<view class="right" bindtap="onNavigateToShowManagement">
+				<image class="icon-mm" src="/images/right.svg"/>
+			</view>
+		</view>
+
+		<!-- 删除账号 -->
+		<view class="delete flex pt20">
+			<view class="left">
+				<image class="icon-ll mr14" src="/images/delete.svg"/>
+				<text class="text">删除账号</text>
+			</view>
+			
+			<view class="right">
+				<image class="icon-mm" src="/images/right.svg"/>
+			</view>
+		</view>
+
 	</view>
-	<view class="role">
-		HoBo
+
+	<!-- Help part -->
+
+	<view class="helps bt b3 w80 ml50">
+
+		<view class="help flex pt40">
+			<view class="left">
+			<image class="icon-ml mr16" src="/images/help.svg"/>
+			<text class="text">帮助和反馈</text>
+			</view>
+			<view class="right">
+			<image class="icon-mll" src="/images/arrow.svg"/>
+			</view>
+		</view>
+
 	</view>
-	<view class="followers">
-		<text class="text">关注人数：365</text>
-	</view>
-</view>
-
-<!-- Middle Part -->
-
-<view class="tabs pa50">
-    <view class="profile flex">
-        <view class="left">
-        <image class="icon-mll mr16" src="/icons/profile.svg"/>
-        <text class="text">我的档案</text>
-        </view>
-        <view class="right">
-        <image class="icon-mm" src="/icons/right.svg"/>
-        </view>
-    </view>
-
-    <view class="history flex pt20">
-        <view class="left">
-        <image class="icon-ml mr20" src="/icons/stage.svg"/>
-        <text class="text">演出历史</text>
-        </view>
-        <view class="right">
-        <image class="icon-mm" src="/icons/right.svg"/>
-        </view>
-    </view>
-	
-    <view class="follow flex pt20">
-        <view class="left">
-        <image class="icon-ll mr14" src="/icons/like.svg"/>
-        <text class="text">我的关注</text>
-        </view>
-        <view class="right">
-        <image class="icon-mm" src="/icons/right.svg"/>
-        </view>
-    </view>
-
-    <view class="manage flex pt20">
-        <view class="left">
-        <image class="icon-ll mr14" src="/icons/manage.svg"/>
-        <text class="text">演出管理</text>
-        </view>
-        <view class="right">
-        <image class="icon-mm" src="/icons/right.svg"/>
-        </view>
-    </view>
-
-    <view class="delete flex pt20">
-        <view class="left">
-        <image class="icon-ll mr14" src="/icons/delete.svg"/>
-        <text class="text">删除账号</text>
-        </view>
-        <view class="right">
-        <image class="icon-mm" src="/icons/right.svg"/>
-        </view>
-    </view>
-
-</view>
-
-<!-- Bottom part -->
-
-<view class="helps bt b3 w80 ml50">
-
-    <view class="help flex pt40">
-        <view class="left">
-        <image class="icon-ml mr16" src="/icons/help.svg"/>
-        <text class="text">帮助和反馈</text>
-        </view>
-        <view class="right">
-        <image class="icon-mll" src="/icons/arrow.svg"/>
-        </view>
-    </view>
-
-</view>
 
 </view>

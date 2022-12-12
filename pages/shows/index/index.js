@@ -1,5 +1,6 @@
 // pages/shows/index/index.js
 import event from '@codesmiths/event';
+import { checkShowExpired } from '../../../utils/util';
 
 const globalData = getApp().globalData
 
@@ -60,7 +61,7 @@ Page({
 				header: globalData.header,
 				success(res) {
 					// 4. store searched data
-					_this.setData({ shows: res.data.shows });
+					checkShowExpired(_this, res.data.shows);
 				}
 			})
 		}
@@ -74,10 +75,10 @@ Page({
 
         wx.request({
             url: `${globalData.baseUrl}/shows`,
-            header: globalData.header,
+			header: globalData.header,
             success(res) {
                 wx.hideLoading();
-                _this.setData({ shows: res.data.shows })
+				checkShowExpired(_this, res.data.shows);
 			}
         })
     },

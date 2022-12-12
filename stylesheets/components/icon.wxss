@@ -19,8 +19,8 @@
 }
 
 .icon-mm {
-  width:55rpx;
-  height:55rpx;
+	width:55rpx;
+	height:55rpx;
 }
 
 .icon-ml {
@@ -31,7 +31,7 @@
 .icon-mll {
     width:65rpx;
     height:65rpx;
-  }
+}
 
 .icon-ll {
   width: 70rpx;
