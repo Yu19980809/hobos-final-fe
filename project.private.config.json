@@ -34,6 +34,13 @@
 					"query": "",
 					"launchMode": "default",
 					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/users/edit/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
 				}
 			]
 		}

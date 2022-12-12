@@ -1,179 +1,95 @@
 <!-- 编辑用户信息 -->
-<view class="container">
-
-<!-- Avatar Part -->
-
-<view class="avatar">
-
-</view>
-
-
-<!-- Hobo Info -->
-	<view class="hobo_all">
-
-
-	<!-- Top Part -->
-	<view class="top">
-		<view class="text">
-			个人信息
+<view class="container px80">
+	<!-- avatar -->
+	<view class="avatar mauto my0">
+		<image src="{{ user.avatar }}" mode="aspectFill" class="w100 h100 circle"/>
+		<view class="edit">
+			<image src="/images/userEdit/edit.svg" mode="aspectFill" class="w100 h100 circle"/>
 		</view>
 	</view>
 
-	<!-- Middle Part -->
-	<view class="middle">
-
-		<view class="user">
-			<image class="icon-l" src="/icons/user.svg"/>
-			<text class="text">用户名</text>
-			<input 
-				class="input"
-				type="text"
-				name="user"
-				placeholder="脱缰野马"
-				value="{{ formData.user }}"
-			/>
+	<!-- info -->
+	<view class="py30">
+		<view class="f32 bold my20">
+			个人档案
 		</view>
 
-		<view class="type">
-			<image class="icon-ml" src="/icons/identity.svg"/>
-			<text class="text">身份</text>
-			<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-  				<view class="picker">
-      			{{array[index]}}
-    			</view>
-  			</picker>
-			<image class="icon-xs" src="/icons/down.svg"/>
-		</view>
-
-	</view>
-
-	</view>
-
-<!-- Comedian Info -->
-	<view class="comedian_all">
-
-
-	<!-- Top Part -->
-	<view class="top">
-		<text>演员信息</text>
-	</view>
-
-	<!-- Middle Part -->
-	<view class="middle">
-		<view class="comedian_name">
-			<image class="icon-l" src="/icons/user.svg"/>
-			<text class="text">艺名</text>
-			<input 
-				class="input"
-				type="text"
-				name="user"
-				placeholder="脱缰野马"
-				value="{{ formData.comedian_name }}"
-			/>
-	</view>
-
-	<view class="type">
-		<image class="icon-ml" src="/icons/identity.svg"/>
-		<text class="text">身份</text>
-		<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-			<view class="picker">
-			{{array[index]}}
-			</view>
-		</picker>
-		<image class="icon-xs" src="/icons/down.svg"/>
-	</view>
-
-	<view class="slogan">
-		<image class="icon-l" src="/icons/slogan.svg"/>
-		<text class="text">一句简介</text>
-		<input 
-			class="input"
-			type="text"
-			name="user"
-			placeholder="脱缰野马..."
-			value="{{ formData.slogan }}"
-		/>
-	</view>
-
-	<view class="des">
-		<view class="des-top">
-			<image class="icon-m" src="/icons/stage.svg"/>
-			<text class="text">舞台经验</text>
-		</view>
-
-		<input 
-			class="input"
-			type="text"
-			name="description"
-			placeholder="简介..."
-			value="{{ formData.experience }}"
-		/>  
-    </view>
-
-	</view>
-
-	</view>
-
-
-<!-- Club Part -->
-	<view class="club_all">
-
-
-	<!-- Top Part -->
-	<view class="top">
-		<text>俱乐部信息</text>
-	</view>
-
-	<!-- Middle Part -->
-	<view class="middle">
-		<view class="club_name">
-			<image class="icon-l" src="/icons/club.svg"/>
-			<text class="text">俱乐部名</text>
-			<input 
-				class="input"
-				type="text"
-				name="user"
-				placeholder="脱缰野马"
-				value="{{ formData.club_name }}"
-			/>
-		</view>
-
-		<view class="type">
-			<image class="icon-ml" src="/icons/identity.svg"/>
-			<text class="text">身份</text>
-			<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-			<view class="picker">
-				{{array[index]}}
-			</view>
-			</picker>
-			<image class="icon-xs" src="/icons/down.svg"/>
-		</view>
-
-		<view class="des">
-			<view class="des-top">
-				<image class="icon-m" src="/icons/description.svg"/>
-				<text class="text">俱乐部简介</text>
+		<view class="info pa20 bt bb f32 bold">
+			<view class="role">
+				<view class="left">
+					<image src="/images/userEdit/identity.svg" mode="aspectFill"/>
+					<text>身份</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.role }}"/>
+				</view>
 			</view>
 
-			<input 
-				class="input"
-				type="text"
-				name="description"
-				placeholder="简介..."
-				value="{{ formData.description }}"
-			/>  
-    	</view>
+			<view class="name">
+				<view class="left">
+					<image src="/images/userEdit/user.svg" mode="aspectFill"/>
+					<text wx:if="{{ user.role === 'comedian' }}">艺名</text>
+					<text wx:else>用户名</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.nickname }}"/>
+				</view>
+			</view>
+
+			<view class="slogan" wx:if="{{ user.role === 'comedian' }}">
+				<view class="left">
+					<image src="/images/userEdit/slogan.svg" mode="aspectFill"/>
+					<text>一句简介</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.slogan || '脱缰野马' }}"/>
+				</view>
+			</view>
+
+			<view class="experience" wx:if="{{ user.role === 'comedian' }}">
+				<view class="left">
+					<image src="/images/userEdit/stage.svg" mode="aspectFill"/>
+					<text>演出经验</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.experience || '脱缰野马' }}"/>
+				</view>
+			</view>
+
+			<view class="clubName" wx:if="{{ user.role === 'holder' }}">
+				<view class="left">
+					<image src="/images/userEdit/club.svg" mode="aspectFill"/>
+					<text>俱乐部名称</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.club_name || '贰叁叁俱乐部' }}"/>
+				</view>
+			</view>
+
+			<view class="clubAddr" wx:if="{{ user.role === 'holder' }}">
+				<view class="left">
+					<image src="/images/userEdit/club.svg" mode="aspectFill"/>
+					<text>俱乐部地址</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.club_address || '延平路425' }}"/>
+				</view>
+			</view>
+
+			<view class="clubDesc" wx:if="{{ user.role === 'holder' }}">
+				<view class="left">
+					<image src="/images/userEdit/description.svg" mode="aspectFill"/>
+					<text>俱乐部简介</text>
+				</view>
+				<view class="right" bindtap="onNavigateToInfo">
+					<input type="text" placeholder="{{ user.club_desc || '延平路425' }}"/>
+				</view>
+			</view>
+		</view>
 	</view>
 
+	<!-- buttom -->
+	<view class="btn">
+		<view class="btn-black f32">保存信息</view>
 	</view>
-
-
-<!-- Bottom Part -->
-
-	<view class="bottom">
-		<button class="btn">
-		<text>保存信息</text>
-		</button>
-	</view>
-
 </view>

@@ -1,6 +1,6 @@
 /* pages/users/edit/index.wxss */
 
-.user, .comedian_name, .type, .slogan, .club_name {
+/* .user, .comedian_name, .type, .slogan, .club_name {
 	display: flex;
 	margin-top: 20rpx;
 	padding-top: 20rpx;
@@ -16,4 +16,55 @@
 
 .club_all .des {
 	padding-top: 36rpx;
+} */
+
+
+/* avatar */
+.avatar {
+	position: relative;
+	width: 340rpx;
+	height: 340rpx;
+}
+
+.avatar .edit {
+	position: absolute;
+	right:30rpx;
+	bottom: 40rpx;
+	width: 40rpx;
+	height: 40rpx;
+	background-color: #fff;
+	z-index: 9;
+}
+
+/* info */
+.info > view {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100rpx;
+	box-sizing: border-box;
+	margin-bottom: 10rpx;
+}
+
+.info > view .left {
+	display: flex;
+	align-items: center;
+	width: 50%;
+}
+
+.info > view .left text {
+	margin-left: 20rpx;
+	font-size: 31rpx;
+	letter-spacing: 4rpx;
+}
+
+.info > view .right {
+	width: 50%;
+	text-align: center;
+}
+
+.info image {
+	width: 60rpx;
+	height: 60rpx;
 }
