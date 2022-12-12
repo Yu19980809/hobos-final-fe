@@ -5,7 +5,7 @@
 <view class="s_top">
 
 	<!-- search bar -->
-	<view class="search">
+	<!-- <view class="search">
 		<input
 			type="text"
 			class="bar"
@@ -14,6 +14,20 @@
 		<view class="cancelBtn">
 			<image src="/images/cross.svg"/>
 		</view>
+		</input>
+	</view> -->
+	<!-- search bar -->
+	<view class="search">
+		<input
+			type="text"
+			class="bar"
+            placeholder="搜索"
+			value="{{ query }}"
+		>
+
+			<view class="cancelBtn">
+				<image src="/images/cross.svg" mode="aspectFill"/>
+			</view>
 		</input>
 	</view>
 </view>

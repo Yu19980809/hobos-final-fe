@@ -1,13 +1,5 @@
 /* pages/comedians/index/index.wxss */
 
-.search {
-    font-size: medium;
-    border: 1rpx solid black;
-    border-radius: 32rpx;
-    padding: 12rpx 16rpx;
-    box-shadow: 0 0 16rpx rgba(251, 146, 158, .4);
-}
-
 .filter {
     margin: 15rpx 0rpx;
     position: absolute; right: 60rpx;

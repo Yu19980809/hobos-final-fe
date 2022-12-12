@@ -16,6 +16,9 @@ Page({
 
 	},
 
+	/**
+	 * filter comedian and club
+	 */
 	bindPickerChange(e) {
 		this.setData({
 		  index: e.detail.value
