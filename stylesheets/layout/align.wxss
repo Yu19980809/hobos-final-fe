@@ -16,7 +16,6 @@
 .justify-around { justify-content: space-around;}
 .justify-center { justify-content: center;}
 .justify-end { justify-content: flex-end;}
-.justify-end { justify-content: flex-end;}
 .justify-start { justify-content: flex-start}
 /* TEXT */
 .text-center { text-align: center;}

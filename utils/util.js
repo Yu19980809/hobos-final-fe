@@ -43,7 +43,20 @@ const checkShowExpired = (_this, shows) => {
 	_this.setData({ upcomingShows, expiredShows });
 }
 
+// 点击下拉显示框
+const onSelectTaps = e => {
+	this.setData({ isMenuShow: !this.data.isMenuShow });
+}
+
+// 点击下拉列表
+const onOptionTaps = e => {
+	const index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+	this.setData({ index, isMenuShow: !this.data.isMenuShow });
+}
+
 module.exports = {
   formatTime,
-  checkShowExpired
+  checkShowExpired,
+  onSelectTaps,
+  onOptionTaps
 }
