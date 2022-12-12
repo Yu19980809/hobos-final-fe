@@ -66,6 +66,13 @@ Page({
 
 	},
 
+
+    bindPickerChange(e) {
+		this.setData({
+		  index: e.detail.value
+		})
+    },
+    
 	/**
 	 * Lifecycle function--Called when page is initially rendered
 	 */
