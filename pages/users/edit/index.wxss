@@ -1,39 +1,20 @@
 /* pages/users/edit/index.wxss */
 
-/* .user, .comedian_name, .type, .slogan, .club_name {
-	display: flex;
-	margin-top: 20rpx;
-	padding-top: 20rpx;
-}
-
-.type .picker {
-	margin-left: -60rpx;
-}
-
-.des .text {
-	margin-top: -5rpx;
-}
-
-.club_all .des {
-	padding-top: 36rpx;
-} */
-
-
 /* avatar */
 .avatar {
-	position: relative;
-	width: 340rpx;
+	width: 340rpx !important;
 	height: 340rpx;
 }
 
-.avatar .edit {
+.edit {
 	position: absolute;
-	right:30rpx;
-	bottom: 40rpx;
+	right:215rpx;
+	top: 260rpx;
 	width: 40rpx;
 	height: 40rpx;
 	background-color: #fff;
 	z-index: 9;
+	background-image: pink;
 }
 
 /* info */

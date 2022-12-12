@@ -16,7 +16,7 @@
 				},
 				{
 					"name": "",
-					"pathName": "pages/bookings/index/index",
+					"pathName": "pages/users/test/index",
 					"query": "",
 					"launchMode": "default",
 					"scene": null

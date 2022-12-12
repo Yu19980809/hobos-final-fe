@@ -9,8 +9,7 @@
 		"pages/users/edit/index",
 		"pages/bookings/index/index",
 		"pages/followings/index/index",
-		"pages/comedians/index/index",
-		"images/userEdit"
+		"pages/comedians/index/index"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

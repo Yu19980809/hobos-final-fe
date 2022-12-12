@@ -13,10 +13,10 @@
 		<view class="role f32">
 			<text wx:if="{{ user.role === 'audience' }}">观众</text>
 			<text wx:if="{{ user.role === 'comdian' }}">演员</text>
-			<text wx:if="{{ user.role === 'holder' }}">俱乐部主理人</text>
+			<text wx:if="{{ user.role === 'holder' }}">主理人</text>
 		</view>
 
-		<view class="followers f24 b px20 radius20 mt20">
+		<view class="followers f24 b px20 radius20 mt20" wx:if="{{ user.role !== 'audience' }}">
 			<view wx:if="{{ user.role === 'comedian' }}">
 				关注人数： 
 				<text class="f32">{{ user.comedian_followers.length }}</text>
