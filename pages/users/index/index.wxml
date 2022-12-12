@@ -1,5 +1,5 @@
 <!--用户信息（即“我的”页面）-->
-<view class="container">
+<view class="container px80">
 	<!-- 个人信息 -->
 	<view class="info bbox pa py30 flex column items-center white bold radius20">
 		<view class="avatar">
@@ -17,7 +17,14 @@
 		</view>
 
 		<view class="followers f24 b px20 radius20 mt20">
-			关注人数：365
+			<view wx:if="{{ user.role === 'comedian' }}">
+				关注人数： 
+				<text class="f32">{{ user.comedian_followers.length }}</text>
+			</view>
+			<view wx:if="{{ user.role === 'holder' }}">
+				关注人数： 
+				<text class="f32">{{ user.club_followers.length }}</text>
+			</view>
 		</view>
 	</view>
 
@@ -28,7 +35,7 @@
 				<image src="/images/profile/profile.svg" mode="aspectFill"/>
 				<text>我的档案</text>
 			</view>
-			<view class="right">
+			<view class="right" bindtap="onNavigateToInfo">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
@@ -38,7 +45,7 @@
 				<image src="/images/profile/like.svg" mode="aspectFill"/>
 				<text>我的关注</text>
 			</view>
-			<view class="right">
+			<view class="right" bindtap="onNavigateToFollowing">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
@@ -48,7 +55,7 @@
 				<image src="/images/profile/stage.svg" mode="aspectFill"/>
 				<text>演出历史</text>
 			</view>
-			<view class="right">
+			<view class="right" bindtap="onNavigateToBookingHistory">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
@@ -58,7 +65,7 @@
 				<image src="/images/profile/manage.svg" mode="aspectFill"/>
 				<text>演出管理</text>
 			</view>
-			<view class="right">
+			<view class="right" bindtap="onNavigateToShowManagement">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
@@ -68,7 +75,7 @@
 				<image src="/images/profile/delete.svg" mode="aspectFill"/>
 				<text>注销</text>
 			</view>
-			<view class="right">
+			<view class="right" bindtap="onLogout">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>

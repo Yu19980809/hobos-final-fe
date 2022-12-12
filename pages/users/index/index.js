@@ -11,6 +11,39 @@ Page({
 	},
 
 	/**
+	 * log out
+	 */
+	onLogout() {
+		wx.showModal({
+			title: '注销提醒',
+			content: '确认注销当前账号吗？',
+			complete: (res) => {
+				if (res.confirm) {
+					console.log('log out');
+				}
+			}
+		})
+	},
+
+	/**
+	 * go to following page
+	 */
+	onNavigateToFollowing() {
+		wx.navigateTo({
+			url: '/pages/followings/index/index',
+		})
+	},
+
+	/**
+	 * go to info page
+	 */
+	onNavigateToInfo() {
+		wx.navigateTo({
+			url: '/pages/users/edit/index',
+		})
+	},
+
+	/**
 	 * go to booking history
 	 */
 	onNavigateToBookingHistory() {

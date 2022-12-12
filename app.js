@@ -26,12 +26,9 @@ App({
 		data: { code },
 		success(res) {
 			if (res.statusCode === 200) {
-                // 保存请求到的数据
+				// 保存请求到的数据
                 _this.globalData.user = res.data.user;
-                _this.globalData.user.avatar = res.data.avatar;
-				_this.globalData.header = {
-					'Authorization': res.header['Authorization']
-				};
+				_this.globalData.header = { 'Authorization': res.header['Authorization'] };
 				event.emit('tokenReady')
 			} else {
 				// 登录失败，进行提示
