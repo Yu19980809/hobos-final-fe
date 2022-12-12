@@ -44,8 +44,9 @@
     text-align: center;
     line-height: 60rpx;
     border: 2rpx solid white;
-    z-index: 9;
-=======
+	z-index: 9;
+}
+/* ======= */
 /* pages/comedians/index/index.wxss */
 
 .search {
