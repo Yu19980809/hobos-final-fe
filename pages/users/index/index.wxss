@@ -1,51 +1,65 @@
 /* pages/users/index/index.wxss */
 
-.avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40rpx;
-    width: 64vw;
-    height: 40vh;
-    padding: 50rpx 50rpx;
-    color: white;
-    background-color: black;
-    border-radius: 40rpx;
+/* info part */
+.info {
+	height: 600rpx;
+	background-color: #000;
 }
 
-.pic .image {
-    width: 400rpx;
-    height: 400rpx;
-    border-radius: 50%;
+.avatar {
+	width: 340rpx;
+	height: 340rpx;
+}
+
+.name, .role, .followers {
+	height: 60rpx;
+	line-height: 60rpx;
 }
 
 .followers {
-    font-size: x-small;
-    background-color: rgb(142,80,88);
-    border: 2rpx solid white;
-    padding: 6rpx 12rpx;
-    margin: 16rpx;
-    border-radius: 16rpx;
+	width: 160rpx;
+	background-color: rgb(142,80,88);
 }
 
-.left {
-    display: flex;
-    align-items: center;
+/* actions */
+.actions > view {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100rpx;
+	box-sizing: border-box;
+	margin-bottom: 10rpx;
 }
 
-.right {
-    display: flex;
-    position: absolute; right: 15vw;
+.actions > view .left {
+	display: flex;
+	align-items: center;
+	width: 80%;
 }
 
-.profile {
-    margin-top: -36rpx;
+.actions > view .left text {
+	margin-left: 20rpx;
+	font-size: 31rpx;
+	letter-spacing: 4rpx;
 }
 
-.history, .follow, .manage, .delete {
-    margin-top: 20rpx;
+.actions > view .right {
+	width: 20%;
+	text-align: right;
 }
 
+.actions image {
+	width: 60rpx;
+	height: 60rpx;
+}
+
+/* help */
 .help {
-    padding-bottom: 200rpx;
+	height: 100rpx;
+}
+
+.help image {
+	width: 60rpx;
+	height: 60rpx;
 }
