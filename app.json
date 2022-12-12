@@ -1,38 +1,38 @@
 {
-  "pages":[
-	"pages/shows/index/index",
-	"pages/shows/show/index",
-	"pages/shows/new/index",
-	"pages/shows/edit/index",
-	"pages/shows/management/index",
-	"pages/users/index/index",
-	"pages/users/edit/index",
-	"pages/bookings/index/index",
-	"pages/followings/index/index",
-	"pages/comedians/index/index"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "流浪单口",
-    "navigationBarTextStyle":"black"
-  },
-  "tabBar": {
-	  "list": [
-		  {
-			  "pagePath": "pages/shows/index/index",
-			  "text": "首页"
-		  },
-		  {
-			  "pagePath": "pages/comedians/index/index",
-			  "text": "演员"
-		  },
-		  {
-			  "pagePath": "pages/users/index/index",
-			  "text": "我的"
-		  }
-	  ]
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+	"pages": [
+		"pages/shows/index/index",
+		"pages/shows/show/index",
+		"pages/shows/new/index",
+		"pages/shows/edit/index",
+		"pages/shows/management/index",
+		"pages/users/index/index",
+		"pages/users/edit/index",
+		"pages/bookings/index/index",
+		"pages/followings/index/index",
+		"pages/comedians/index/index"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "流浪单口",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/shows/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/comedians/index/index",
+				"text": "演员"
+			},
+			{
+				"pagePath": "pages/users/index/index",
+				"text": "我的"
+			}
+		]
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json"
 }

@@ -136,6 +136,7 @@
 .px40 { padding-right: 40rpx !important; padding-left: 40rpx !important; }
 .px50 { padding-right: 50rpx !important; padding-left: 50rpx !important; }
 .px60 { padding-right: 60rpx !important; padding-left: 60rpx !important; }
+.px80 { padding-right: 80rpx !important; padding-left: 80rpx !important; }
 .px100 { padding-right: 100rpx !important; padding-left: 100rpx !important; }
 
 .grid-3 { 

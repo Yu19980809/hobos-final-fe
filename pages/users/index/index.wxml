@@ -1,105 +1,96 @@
 <!--用户信息（即“我的”页面）-->
-
-<view class="container">
-
-	<!-- Info Part -->
-
-	<view class="avatar text-center">
-		<view class="pic">
-			<image class="image" src="{{ user.avatar }}" mode="scaleToFill"/>
+<view class="container px80">
+	<!-- 个人信息 -->
+	<view class="info bbox pa py30 flex column items-center white bold radius20">
+		<view class="avatar">
+			<image src="{{ user.avatar }}" mode="aspectFill" class="w100 h100 circle"/>
 		</view>
-		<view class="name">
+
+		<view class="name mt f32">
 			{{ user.nickname }}
 		</view>
-		<view class="role">
+
+		<view class="role f32">
 			<text wx:if="{{ user.role === 'audience' }}">观众</text>
-			<text wx:if="{{ user.role === 'comedian' }}">演员</text>
-			<text wx:if="{{ user.role === 'holder' }}">俱乐部主理人</text>
+			<text wx:if="{{ user.role === 'comdian' }}">演员</text>
+			<text wx:if="{{ user.role === 'holder' }}">主理人</text>
 		</view>
-		<view class="followers">
-			<text class="text">关注人数：365</text>
+
+		<view class="followers f24 b px20 radius20 mt20" wx:if="{{ user.role !== 'audience' }}">
+			<view wx:if="{{ user.role === 'comedian' }}">
+				关注人数： 
+				<text class="f32">{{ user.comedian_followers.length }}</text>
+			</view>
+			<view wx:if="{{ user.role === 'holder' }}">
+				关注人数： 
+				<text class="f32">{{ user.club_followers.length }}</text>
+			</view>
 		</view>
 	</view>
 
-	<!-- ACtions Part -->
-
-	<view class="tabs pa50">
-		<!-- 我的档案 -->
-		<view class="profile flex" wx:if="{{ user.role === 'comedian' }}">
+	<!-- 操作列表 -->
+	<view class="actions flex column items-center bbox pa20 black">
+		<view class="doc">
 			<view class="left">
-				<image class="icon-mll mr16" src="/images/profile.svg"/>
-				<text class="text">我的档案</text>
+				<image src="/images/profile/profile.svg" mode="aspectFill"/>
+				<text>我的档案</text>
 			</view>
-
-			<view class="right">
-				<image class="icon-mm" src="/images/right.svg"/>
+			<view class="right" bindtap="onNavigateToInfo">
+				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<!-- 演出历史 -->
-		<view class="history flex pt20">
+		<view class="follow">
 			<view class="left">
-				<image class="icon-ml mr20" src="/images/stage.svg"/>
-				<text class="text">演出历史</text>
+				<image src="/images/profile/like.svg" mode="aspectFill"/>
+				<text>我的关注</text>
 			</view>
+			<view class="right" bindtap="onNavigateToFollowing">
+				<image src="/images/profile/right.svg" mode="aspectFill"/>
+			</view>
+		</view>
 
+		<view class="history">
+			<view class="left">
+				<image src="/images/profile/stage.svg" mode="aspectFill"/>
+				<text>演出历史</text>
+			</view>
 			<view class="right" bindtap="onNavigateToBookingHistory">
-				<image class="icon-mm" src="/images/right.svg"/>
+				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<!-- 我的关注 -->
-		<view class="follow flex pt20">
+		<view class="management">
 			<view class="left">
-				<image class="icon-ll mr14" src="/images/like.svg"/>
-				<text class="text">我的关注</text>
+				<image src="/images/profile/manage.svg" mode="aspectFill"/>
+				<text>演出管理</text>
 			</view>
-
-			<view class="right">
-				<image class="icon-mm" src="/images/right.svg"/>
-			</view>
-		</view>
-
-		<!-- 演出管理 -->
-		<view class="manage flex pt20" wx:if="{{ user.role === 'holder' }}">
-			<view class="left">
-				<image class="icon-ll mr14" src="/images/manage.svg"/>
-				<text class="text">演出管理</text>
-			</view>
-
 			<view class="right" bindtap="onNavigateToShowManagement">
-				<image class="icon-mm" src="/images/right.svg"/>
+				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<!-- 删除账号 -->
-		<view class="delete flex pt20">
+		<view class="logout">
 			<view class="left">
-				<image class="icon-ll mr14" src="/images/delete.svg"/>
-				<text class="text">删除账号</text>
+				<image src="/images/profile/delete.svg" mode="aspectFill"/>
+				<text>注销</text>
 			</view>
-			
-			<view class="right">
-				<image class="icon-mm" src="/images/right.svg"/>
+			<view class="right" bindtap="onLogout">
+				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
-
 	</view>
 
-	<!-- Help part -->
-
-	<view class="helps bt b3 w80 ml50">
-
-		<view class="help flex pt40">
-			<view class="left">
-			<image class="icon-ml mr16" src="/images/help.svg"/>
-			<text class="text">帮助和反馈</text>
+	<!-- 帮助 -->
+	<view class="help bbox bt pa pt30">
+		<view class="flex justify-between items-center">
+			<view class="left w80 flex items-center">
+				<image src="/images/profile/help.svg" mode="aspectFill"/>
+				<text class="ml20 f32" style="letter-spacing: 4rpx;">帮助和反馈</text>
 			</view>
-			<view class="right">
-			<image class="icon-mll" src="/images/arrow.svg"/>
+			<view class="right w20 tr">
+				<image src="/images/profile/arrow.svg" mode="aspectFill"/>
 			</view>
 		</view>
-
 	</view>
-
 </view>
