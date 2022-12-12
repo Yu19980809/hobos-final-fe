@@ -1,4 +1,6 @@
 // pages/comedians/index/index.js
+const globalData = getApp().globalData;
+
 Page({
 
 	/**
@@ -6,7 +8,55 @@ Page({
 	 */
 	data: {
 		index: 0,
-		array: [ '演员', '俱乐部' ]
+		isMenuShow: false,
+		category: ['演员', '俱乐部']
+	},
+
+	/**
+	 * get all comedians
+	 */
+	onFetchAllComeidans() {
+		const _this = this;
+
+		wx.request({
+			url: `${globalData.baseUrl}/comedians`,
+			header: globalData.header,
+			success(res) {
+				console.log('all comedians', res);
+				_this.setData({ comedians: res.data.comedians });
+			}
+		})
+	},
+		
+	/**
+	 * get all clubs
+	 */
+	onFetchAllClubs() {
+		const _this = this;
+
+		wx.request({
+			url: `${globalData.baseUrl}/clubs`,
+			header: globalData.header,
+			success(res) {
+				console.log('all clubs', res);
+				_this.setData({ clubs: res.data.clubs });
+			}
+		})
+	},
+
+	/**
+	 * 点击下拉显示框
+	 */
+	onSelectTaps(e) {
+		this.setData({ isMenuShow: !this.data.isMenuShow });
+	},
+
+	/**
+	 * 点击下拉列表
+	 */
+	onOptionTaps(e) {
+		const index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+		this.setData({ index, isMenuShow: !this.data.isMenuShow });
 	},
 
 	/**
@@ -15,15 +65,6 @@ Page({
 	onLoad(options) {
 
 	},
-
-	/**
-	 * filter comedian and club
-	 */
-	bindPickerChange(e) {
-		this.setData({
-		  index: e.detail.value
-		})
-    },
 
 	/**
 	 * Lifecycle function--Called when page is initially rendered
@@ -36,7 +77,9 @@ Page({
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
-
+		// 获取演员列表和俱乐部列表
+		this.onFetchAllComeidans();
+		this.onFetchAllClubs();
 	},
 
 	/**

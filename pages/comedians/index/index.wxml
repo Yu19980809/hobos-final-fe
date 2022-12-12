@@ -1,21 +1,5 @@
 <!-- 演员列表 -->
 <view class="container">
-
-<!-- Top Part -->
-<view class="s_top">
-
-	<!-- search bar -->
-	<!-- <view class="search">
-		<input
-			type="text"
-			class="bar"
-            placeholder="搜索"
-		>
-		<view class="cancelBtn">
-			<image src="/images/cross.svg"/>
-		</view>
-		</input>
-	</view> -->
 	<!-- search bar -->
 	<view class="search">
 		<input
@@ -24,39 +8,79 @@
             placeholder="搜索"
 			value="{{ query }}"
 		>
-
 			<view class="cancelBtn">
 				<image src="/images/cross.svg" mode="aspectFill"/>
 			</view>
 		</input>
 	</view>
-</view>
 
-<!-- Middle Part -->
+	<!-- filter -->
+	<view class="filter flex justify-end">
+		<view class="dropdown">
+			<view class="select_box">
+			<view class="select" catchtap="onSelectTaps">
+				<text class="select_text">{{ category[index] }}</text>
+				<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
+			</view>
 
-<view class="filter flex">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-  		<view class="picker">
-      		{{array[index]}}
-    	</view>
-  	</picker>
+			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+				<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
+				style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
+			</view>
+			</view>
+		</view>
+	</view>
 
-    <image class="icon-s" src="/images/down.svg"/>
-</view>
+	<!-- lists -->
+	<view class="lists">
+		<view class="comedians" wx:if="{{ category[index] === '演员' }}">
+			<view
+				class="comedian"
+				wx:for="{{ comedians }}"
+				wx:for-item="comedian"
+				wx:key="index"
+			>
+				<view class="avatar">
+					<image src="{{ comedian.avatar }}" mode="aspectFill"/>
+				</view>
+				<view class="info">
+					<view class="name bold f32">
+						{{ comedian.nickname }}
+					</view>
 
+					<view class="slogan">
+						{{ comedian.slogan || '脱缰野马' }}
+					</view>
+				</view>
+				<view class="follow">
+					<text>关注</text>
+				</view>
+			</view>
+		</view>
 
-<!-- Bottom Part -->
+		<view class="clubs"  wx:if="{{ category[index] === '俱乐部' }}">
+			<view
+				class="club"
+				wx:for="{{ clubs }}"
+				wx:for-item="club"
+				wx:key="index"
+			>
+				<view class="avatar">
+					<image src="{{ club.avatar }}" mode="aspectFill"/>
+				</view>
+				<view class="info">
+					<view class="name bold f32">
+						{{ club.name }}
+					</view>
 
-<view class="comedian_card">
-    <view class="pic">
-		<image class="image" src="https://hobos-final.oss-cn-shanghai.aliyuncs.com/default-avatar.jpg" mode="scaleToFill"/>
-	</view>    
-    <view class="middle_c">
-        <text class="comedian_name">艺名</text>
-        <text class="des_c">一句简介：脱缰野马...</text>
-    </view>
-    <view class="followButton">关注</view>
-</view>
-
-
+					<view class="description">
+						{{ club.description || '空空如也' }}
+					</view>
+				</view>
+				<view class="follow">
+					<text>关注</text>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>

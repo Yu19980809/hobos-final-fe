@@ -1,48 +1,61 @@
 /* pages/comedians/index/index.wxss */
 
-.filter {
-    margin: 15rpx 0rpx;
-    position: absolute; right: 60rpx;
-}
-
-.icon-s {
-    padding-top: 10rpx;
-}
-
-.comedian_card {
+.lists > view > view {
     display: flex;
-    color: white;
-    margin-top: 120rpx;
-    padding: 24rpx;
-    border-radius: 24rpx;
-    background-color: black;
+    height: 150rpx;
+    padding: 0 5%;
+    margin-bottom: 30rpx;
+    background-color: #000;
+    color: #fff;
+    border-radius: 40rpx;
+    box-sizing: border-box;
 }
 
-.middle_c {
+.lists > view > view .avatar {
     display: flex;
-    padding-left: 24rpx;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    line-height: 100%;
 }
 
-.des_c {
-    font-size: medium;
-}
-
-.pic .image {
-    width: 120rpx;
-    height: 120rpx;
+.lists > view > view .avatar image {
+    width: 110rpx;
+    height: 110rpx;
     border-radius: 50%;
 }
 
-.followButton {
-    width: 120rpx;
+.lists > view > view .info {
+    width: 50%;
+    height: 100%;
+    flex-grow: 1;
+    padding: 20rpx 0;
+    box-sizing: border-box;
+}
+
+.lists > view > view .info > view {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    padding: 0 20rpx;
+    margin-bottom: 5rpx;
+}
+
+.lists > view > view .follow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.lists > view > view .follow text {
     height: 60rpx;
-    margin-top: 32rpx;
-    margin-right: 24rpx;
-    background-color: rgb(142,80,88);
-    text-align: center;
+    padding: 4rpx 24rpx;
     line-height: 60rpx;
-    border: 2rpx solid white;
-    z-index: 9;
+    border-radius: 24rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    background-color: rgb(251, 146, 158, .6);
 }
