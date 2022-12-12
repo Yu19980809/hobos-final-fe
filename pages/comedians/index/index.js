@@ -16,6 +16,13 @@ Page({
 
 	},
 
+
+    bindPickerChange(e) {
+		this.setData({
+		  index: e.detail.value
+		})
+    },
+    
 	/**
 	 * filter comedian and club
 	 */
