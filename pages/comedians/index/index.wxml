@@ -3,7 +3,6 @@
 
 <!-- Top Part -->
 <view class="s_top">
-
 	<!-- search bar -->
 	<!-- <view class="search">
 		<input
@@ -57,6 +56,5 @@
     </view>
     <view class="followButton">关注</view>
 </view>
-
 
 </view>
