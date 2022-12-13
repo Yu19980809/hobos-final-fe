@@ -30,52 +30,56 @@
 
 	<!-- 操作列表 -->
 	<view class="actions flex column items-center bbox pa20 black">
-		<view class="doc">
+		<view class="doc" bindtap="onNavigateToInfo">
 			<view class="left">
 				<image src="/images/profile/profile.svg" mode="aspectFill"/>
 				<text>我的档案</text>
 			</view>
-			<view class="right" bindtap="onNavigateToInfo">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="follow">
+		<view class="follow"  bindtap="onNavigateToFollowing">
 			<view class="left">
 				<image src="/images/profile/like.svg" mode="aspectFill"/>
 				<text>我的关注</text>
 			</view>
-			<view class="right" bindtap="onNavigateToFollowing">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="history">
+		<view class="history"  bindtap="onNavigateToBookingHistory">
 			<view class="left">
 				<image src="/images/profile/stage.svg" mode="aspectFill"/>
 				<text>演出历史</text>
 			</view>
-			<view class="right" bindtap="onNavigateToBookingHistory">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="management" wx:if="{{ user.role === 'holder' }}">
+		<view
+			wx:if="{{ user.role === 'holder' }}"
+			class="management"
+			bindtap="onNavigateToShowManagement"
+		>
 			<view class="left">
 				<image src="/images/profile/manage.svg" mode="aspectFill"/>
 				<text>演出管理</text>
 			</view>
-			<view class="right" bindtap="onNavigateToShowManagement">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="logout">
+		<view class="logout"  bindtap="onLogout">
 			<view class="left">
 				<image src="/images/profile/delete.svg" mode="aspectFill"/>
 				<text>注销</text>
 			</view>
-			<view class="right" bindtap="onLogout">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>

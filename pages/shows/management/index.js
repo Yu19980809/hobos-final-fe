@@ -10,6 +10,7 @@ Page({
 	 * Page initial data
 	 */
 	data: {
+		isShowActions: false,
 		index: 0,
 		isMenuShow: false,
 		category: ['近期热演', '往期演出']
@@ -40,11 +41,72 @@ Page({
 	},
 
 	/**
+	 * clicked the card, show actions bar
+	 */
+	onClickCard(e) {
+		// find the index of this card
+		const { id } = e.currentTarget.dataset;
+
+		this.setData({
+			isShowActions: (this.data.currentShowId && this.data.currentShowId === id) ? !this.data.isShowActions : 'true',
+			currentShowId: id
+		})
+	},
+
+	/**
+	 * navigate to show edit page
+	 */
+	onNavigateToShowEdit() {
+		const id = this.data.currentShowId;
+
+		wx.navigateTo({
+			url: `/pages/shows/new/index?isEdit=true&id=${id}`,
+		})
+	},
+
+	/**
+	 * delete show
+	 */
+	onDeleteShow() {
+		const _this = this;
+
+		wx.showModal({
+			title: '删除提示',
+			content: '确认删除该演出吗？',
+			complete: (res) => {
+				if (res.confirm) {
+					// send request to delete this show
+					_this.onDestroyShow(_this.data.currentShowId)
+				}
+			}
+		})
+	},
+
+	/**
+	 * send request to delete a show
+	 */
+	onDestroyShow(id) {
+		wx.request({
+			url: `${globalData.baseUrl}/shows/${id}`,
+			header: globalData.header,
+			success(res) {
+				// 1. fetch data again
+				this.onFetchCreatedShows();
+
+				// 2. show toast
+				wx.showToast({
+					title: '删除成功',
+				})
+			}
+		})
+	},
+
+	/**
 	 * navigate to detail page (upcoming show)
 	 */
 	onNavigateToDetailUpcoming(e) {
 		// 1. get id of show
-		const { id } = e.currentTarget.dataset;
+		const id = this.data.currentShowId;
 
 		// 2. navigate to detail page
 		wx.navigateTo({

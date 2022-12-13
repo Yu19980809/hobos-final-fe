@@ -48,7 +48,7 @@
 }
 
 .btn-normal {
-	width: 150rpx;
+	width: 120rpx;
 	height: 65rpx;
 	border-radius: 16rpx;
 	background-color: #fff;

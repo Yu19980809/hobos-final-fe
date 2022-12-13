@@ -35,7 +35,7 @@
 				wx:for-item="show"
 				wx:key="index"
 				data-id="{{ show.id }}"
-				bindtap="onNavigateToDetailUpcoming"
+				bindtap="onClickCard"
 			>
 				<view class="card-top">
 					<view class="card-top-left">
@@ -63,10 +63,11 @@
 					{{ show.address }}
 				</view>
 
-				<view class="actions bg-black flex justify-around items-center">
-					<view class="btn-normal">编辑</view>
-					<view class="btn-normal">详情</view>
-					<view class="btn-normal">删除</view>
+				<view class="actions bg-black flex justify-around items-center {{ (isShowActions && show.id === currentShowId) ? 'active' : '' }}"
+				>
+					<view class="btn-normal" bindtap="onNavigateToShowEdit">编辑</view>
+					<view class="btn-normal" bindtap="onNavigateToDetailUpcoming">详情</view>
+					<view class="btn-normal" bindtap="onDeleteShow">删除</view>
 				</view>
 			</view>
 		</view>

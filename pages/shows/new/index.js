@@ -61,31 +61,46 @@ Page({
 	},
 
 	/**
-	 * 选择日期
+	 * select date
 	 */
 	bindDateChange: function(e) {
 		this.setData({ date: e.detail.value })
 	},
 
 	/**
-	 * 选择开始时间
+	 * select start time
 	 */
 	bindStartTimeChange: function(e) {
 		this.setData({ startTime: e.detail.value })
 	},
 
 	/**
-	 * 选择结束时间
+	 * select end time
 	 */
 	bindEndTimeChange: function(e) {
 		this.setData({ endTime: e.detail.value })
 	},
 
 	/**
+	 * fetch show inf0
+	 */
+	onFetchShowInfo(id) {
+		wx.request({
+			url: `${globalData.baseUrl}/shows/${id}`,
+			header: globalData.header,
+			success(res) {
+				console.log('fetch show', res);
+			}
+		})
+	},
+
+	/**
 	 * Lifecycle function--Called when page load
 	 */
 	onLoad(options) {
-		
+		const isEdit = options.isEdit || 'false';
+		const id = options.id || null;
+		this.setData({ isEdit, id });
 	},
 
 	/**
@@ -105,6 +120,11 @@ Page({
 			date: fetchCurrentDate(),
 			club: getApp().globalData.user.club
 		});
+
+		// 获取演出信息（编辑状态下）
+		if(this.data.isEdit) {
+			this.onFetchShowInfo(this.data.id)
+		}
 	},
 
 	/**
