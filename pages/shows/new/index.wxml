@@ -14,7 +14,7 @@
 						<text>俱乐部</text>
 					</view>
 					<view class="right">
-						<input name="clubName" type="text" placeholder="贰叁叁俱乐部"/>
+						<text>{{ club.name }}</text>
 					</view>
 				</view>
 
@@ -97,5 +97,4 @@
 			<button form-type="submit" class="pa0 btn-black f32 mauto my40">创建演出</button>
 		</view>
 	</form>
-	
 </view>

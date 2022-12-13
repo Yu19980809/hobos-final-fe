@@ -1,5 +1,5 @@
 <!--用户信息（即“我的”页面）-->
-<view class="container px80">
+<view class="container">
 	<!-- 个人信息 -->
 	<view class="info bbox pa py30 flex column items-center white bold radius20">
 		<view class="avatar">

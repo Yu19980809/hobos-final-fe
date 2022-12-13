@@ -1,5 +1,5 @@
 <!-- 编辑用户信息 -->
-<view class="container px80">
+<view class="container">
 	<!-- avatar -->
 	<button
 		class="avatar mauto my0 pa0 circle"
