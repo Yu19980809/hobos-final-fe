@@ -37,7 +37,7 @@
 				},
 				{
 					"name": "",
-					"pathName": "pages/users/edit/index",
+					"pathName": "pages/shows/new/index",
 					"query": "",
 					"launchMode": "default",
 					"scene": null

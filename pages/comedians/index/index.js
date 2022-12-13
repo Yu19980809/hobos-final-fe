@@ -22,7 +22,6 @@ Page({
 			url: `${globalData.baseUrl}/comedians`,
 			header: globalData.header,
 			success(res) {
-				console.log('all comedians', res);
 				_this.setData({ comedians: res.data.comedians });
 			}
 		})
@@ -38,7 +37,6 @@ Page({
 			url: `${globalData.baseUrl}/clubs`,
 			header: globalData.header,
 			success(res) {
-				console.log('all clubs', res);
 				_this.setData({ clubs: res.data.clubs });
 			}
 		})

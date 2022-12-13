@@ -82,6 +82,6 @@
 	</view>
 
 	<view wx:else>
-		<image src="/images/no-show.png" mode="aspectFit"/>
+		<image src="/images/no-show.jpg" mode="aspectFit"/>
 	</view>
 </view>

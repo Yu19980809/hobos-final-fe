@@ -1,116 +1,101 @@
 <!-- 创建演出 -->
 <view class="container">
-
-<!-- Top Part -->
-	<view class="top">
-		<view class="text">
-			演出信息
-		</view>
-	</view>
-
-<!-- Middle Part -->
-	<view class="middle">
-
-		<view class="club">
-			<image class="icon-l" src="/images/club.svg"/>
-			<view class="text">
-				俱乐部名
+	<form bindsubmit="onPostShow">
+		<!-- info -->
+		<view class="py30">
+			<view class="f32 bold mb40">
+				演出信息
 			</view>
-			<input 
-				class="input"
-				type="text"
-				name="club_name"
-				placeholder="俱乐部名称..."
-				value="{{ formData.club_name }}"
-        	/>
-		</view>
 
-		<view class="name">
-			<image class="icon-l" src="/images/mic.svg"/>
-			<view class="text">
-				演出标题
-			</view>
-			<input 
-				class="input"
-				type="text"
-				name="name"
-				placeholder="演出标题..."
-				value="{{ formData.name }}"
-			/>
-		</view>
-
-		<view class="date">
-			<image class="icon-mm" src="/images/calendar.svg"/>
-			<view class="text">
-				演出日期
-			</view>
-			<picker class="picker" mode="date" value="{{s2}}" start="2000-01-01" end="2099-12-31" bindchange="bindDateChange">
-				<view class="picker" value="{{ formData.date }}">
-				{{s2}}
+			<view class="info px20 py40 bt bb f32 bold">
+				<view class="clubName">
+					<view class="left">
+						<image src="/images/club.svg" mode="aspectFill"/>
+						<text>俱乐部</text>
+					</view>
+					<view class="right">
+						<input name="clubName" type="text" placeholder="贰叁叁俱乐部"/>
+					</view>
 				</view>
-        	</picker>
-			<image class="icon-xs" src="/images/down.svg"/>
-		</view>
 
-		<view class="time">
-			<image class="icon-mm" src="/images/time.svg"/>
-			<view class="text">
-			演出时间
-			</view>
-			<picker class="picker" mode="time" value="{{t2}}" start="00:00" end="23:59" bindchange="bindTimeChange" >
-				<view class="picker">
-				{{ t2 }}
+				<view class="showName">
+					<view class="left">
+						<image src="/images/showNew/mic.svg" mode="aspectFill"/>
+						<text>演出名称</text>
+					</view>
+					<view class="right">
+						<input name="showName" type="text" placeholder="新人训练赛"/>
+					</view>
 				</view>
-			</picker>
-			<image class="icon-xs" src="/images/down.svg"/>
-		</view>
 
-		<view class="comedian">
+				<view class="date">
+					<view class="left">
+						<image src="/images/showNew/calendar.svg" mode="aspectFill"/>
+						<text>演出日期</text>
+					</view>
+					<view class="right">
+						<picker mode="date" value="{{ date }}" start="{{ date }}" end="2025-12-01" bindchange="bindDateChange">
+							<view class="picker">
+								{{ date }}
+							</view>
+						</picker>
+					</view>
+				</view>
 
-		</view>
+				<view class="startTime">
+					<view class="left">
+						<image src="/images/showNew/time.svg" mode="aspectFill"/>
+						<text>开始时间</text>
+					</view>
+					<view class="right">
+						<picker mode="time" value="{{ startTime }}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+							<view class="picker">
+								{{ startTime }}
+							</view>
+						</picker>
+					</view>
+				</view>
 
-		<view class="address">
-			<image class="icon-l" src="/images/address.svg"/>
-			<view class="text">
-			演出地址
-			</view>
-			<input 
-				class="input"
-				type="text"
-				name="address"
-				placeholder="南京西路100号..."
-				value="{{ formData.address }}"
-			/>
-    	</view>
+				<view class="endTime">
+					<view class="left">
+						<image src="/images/showNew/time.svg" mode="aspectFill"/>
+						<text>结束时间</text>
+					</view>
+					<view class="right">
+						<picker mode="time" value="{{ endTime }}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+							<view class="picker">
+								{{ endTime }}
+							</view>
+						</picker>
+					</view>
+				</view>
 
-		<view class="des">
-			<view class="des-top">
-				<image class="icon-m" src="/images/description.svg"/>
-				<view class="text">
-					演出介绍
+				<view class="address">
+					<view class="left">
+						<image src="/images/address.svg" mode="aspectFill"/>
+						<text>演出地址</text>
+					</view>
+					<view class="right">
+						<input name="address" type="text" placeholder="延平路425"/>
+					</view>
+				</view>
+
+				<view class="description">
+					<view class="left">
+						<image src="/images/description.svg" mode="aspectFill"/>
+						<text>演出简介</text>
+					</view>
+					<view class="right">
+						<input name="description" type="text" placeholder="敬请期待"/>
+					</view>
 				</view>
 			</view>
-
-			<input 
-				class="input"
-				type="text"
-				name="description"
-				placeholder="简介..."
-				value="{{ formData.description }}"
-			/>  
-    	</view>
-
-	</view>
-
-<!-- Bottom Part -->
-
-	<view class="bottom">
-		<button class="btn">
-		<view style="display: flex">
-			<image class="icon-s" src="/images/add.svg"/>
-			<view style="margin-left: 5rpx;">创建演出</view>
 		</view>
-		</button>
-	</view>
 
+		<!-- button -->
+		<view class="button">
+			<button form-type="submit" class="pa0 btn-black f32 mauto my40">创建演出</button>
+		</view>
+	</form>
+	
 </view>

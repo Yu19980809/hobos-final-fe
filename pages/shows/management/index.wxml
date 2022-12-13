@@ -9,89 +9,115 @@
 		<text>创建演出</text>
 	</view>
 
-	<!-- upcoming shows -->
-	<view class="upcoming">
-		<view
-            class="card"
-			wx:for="{{ upcomingShows }}"
-			wx:for-item="show"
-			wx:key="index"
-			data-id="{{ show.id }}"
-            bindtap="onNavigateToDetailUpcoming"
-        >
-			<view class="card-top">
-				<view class="card-top-left">
-					<view class="time">
-						{{ show.date }} {{ show.start_time }}-{{ show.end_time }}
-					</view>
-
-					<view class="name">
-						<view class="club-name">
-							{{ show.club_name }}
-						</view>
-
-						<view class="show-name">
-							{{ show.name }}
-						</view>
-					</view>
-				</view>
-
-				<view class="card-top-right">
-					<image src="{{ show.poster }}" mode="aspectFill" class="radius20"/>
-				</view>
+	<!-- filter -->
+	<view class="filter flex justify-end">
+		<view class="dropdown">
+			<view class="select_box">
+			<view class="select" catchtap="onSelectTaps">
+				<text class="select_text">{{ category[index] }}</text>
+				<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
 			</view>
 
-			<view class="card-bottom">
-				{{ show.address }}
+			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+				<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
+				style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
 			</view>
-
-			<view class="actions bg-black flex justify-around items-center">
-				<view class="btn-normal">编辑</view>
-				<view class="btn-normal">删除</view>
 			</view>
 		</view>
 	</view>
 
+	<!-- upcoming shows -->
+	<view class="upcoming" wx:if="{{ category[index] === '近期热演' }}">
+		<view wx:if="{{ upcomingShows && upcomingShows.length !== 0 }}">
+			<view
+				class="card"
+				wx:for="{{ upcomingShows }}"
+				wx:for-item="show"
+				wx:key="index"
+				data-id="{{ show.id }}"
+				bindtap="onNavigateToDetailUpcoming"
+			>
+				<view class="card-top">
+					<view class="card-top-left">
+						<view class="time">
+							{{ show.date }} {{ show.start_time }}-{{ show.end_time }}
+						</view>
+
+						<view class="name">
+							<view class="club-name">
+								{{ show.club_name }}
+							</view>
+
+							<view class="show-name">
+								{{ show.name }}
+							</view>
+						</view>
+					</view>
+
+					<view class="card-top-right">
+						<image src="{{ show.poster }}" mode="aspectFill" class="radius20"/>
+					</view>
+				</view>
+
+				<view class="card-bottom">
+					{{ show.address }}
+				</view>
+
+				<view class="actions bg-black flex justify-around items-center">
+					<view class="btn-normal">编辑</view>
+					<view class="btn-normal">详情</view>
+					<view class="btn-normal">删除</view>
+				</view>
+			</view>
+		</view>
+
+		<view wx:else>
+			<image src="/images/no-show.jpg" mode="aspectFit"/>
+		</view>
+	</view>
+
 	<!-- expired shows -->
-	<view class="expired">
-		<!-- title -->
-        <view class="title black f36 mx0 mt60 mb40 bold">往期演出</view>
+	<view class="expired" wx:if="{{ category[index] === '往期演出' }}">
+		<view wx:if="{{ expiredShows && expiredShows.length !== 0 }}">
+			<view
+				class="card"
+				wx:for="{{ expiredShows }}"
+				wx:for-item="show"
+				wx:key="index"
+				data-id="{{ show.id }}"
+				bindtap="onNavigateToDetailExpired"
+			>
+				<view class="card-top">
+					<view class="card-top-left">
+						<view class="time">
+							{{ show.date }} {{ show.start_time }}-{{ show.end_time }}
+						</view>
 
-        <!-- card -->
-        <view
-			class="card"
-			wx:for="{{ expiredShows }}"
-			wx:for-item="show"
-			wx:key="index"
-			data-id="{{ show.id }}"
-			bindtap="onNavigateToDetailExpired"
-		>
-            <view class="card-top">
-                <view class="card-top-left">
-                    <view class="time">
-                        {{ show.date }} {{ show.start_time }}-{{ show.end_time }}
-                    </view>
+						<view class="name opacity5">
+							<view class="club-name">
+								{{ show.club_name }}
+							</view>
 
-                    <view class="name opacity5">
-                        <view class="club-name">
-                            {{ show.club_name }}
-                        </view>
+							<view class="show-name">
+								{{ show.name }}
+							</view>
+						</view>
+					</view>
 
-                        <view class="show-name">
-                            {{ show.name }}
-                        </view>
-                    </view>
-                </view>
+					<view class="card-top-right">
+						<image src="{{ show.poster }}" mode="aspectFill"/>
+						<view class="mask radius20"></view>
+					</view>
+				</view>
 
-                <view class="card-top-right">
-                    <image src="{{ show.poster }}" mode="aspectFill"/>
-                    <view class="mask radius20"></view>
-                </view>
-            </view>
+				<view class="card-bottom">
+					{{ show.address }}
+				</view>
+			</view>
+		</view>
 
-            <view class="card-bottom">
-                {{ show.address }}
-            </view>
-        </view>
+		<view wx:else>
+			<image src="/images/no-show.jpg" mode="aspectFit"/>
+		</view>
 	</view>
 </view>

@@ -76,7 +76,7 @@
 
 				<view class="clubName" wx:if="{{ roles[index] === '主理人' }}">
 					<view class="left">
-						<image src="/images/userEdit/club.svg" mode="aspectFill"/>
+						<image src="/images/club.svg" mode="aspectFill"/>
 						<text>俱乐部名称</text>
 					</view>
 					<view class="right">
@@ -86,7 +86,7 @@
 
 				<view class="clubAddr" wx:if="{{ roles[index] === '主理人' }}">
 					<view class="left">
-						<image src="/images/userEdit/club.svg" mode="aspectFill"/>
+						<image src="/images/club.svg" mode="aspectFill"/>
 						<text>俱乐部地址</text>
 					</view>
 					<view class="right">
@@ -96,7 +96,7 @@
 
 				<view class="clubDesc" wx:if="{{ roles[index] === '主理人' }}">
 					<view class="left">
-						<image src="/images/userEdit/description.svg" mode="aspectFill"/>
+						<image src="/images/description.svg" mode="aspectFill"/>
 						<text>俱乐部简介</text>
 					</view>
 					<view class="right">
