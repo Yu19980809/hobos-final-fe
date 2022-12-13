@@ -1,4 +1,5 @@
 // pages/shows/new/index.js
+import event from '@codesmiths/event';
 import { fetchCurrentDate } from '../../../utils/util';
 
 const globalData = getApp().globalData;
@@ -9,14 +10,12 @@ Page({
 	 * Page initial data
 	 */
 	data: {
-		startTime: '19:00',
-		endTime: '21:30'
 	},
 
 	/**
 	 * post a show
 	 */
-	onPostShow(e) {
+	onHandleShow(e) {
 		// 1. get data user typed
 		const { showName, address, description } = e.detail.value;
 		const date = this.data.date.replace(/-/g, '/');
@@ -33,8 +32,39 @@ Page({
 			club_id: clubId
 		}
 
-		// 2. send request to create a show
-		this.onCreateShow(data);
+		// 2. check this action is edit or add
+		if (this.data.isEdit) {
+			// send request to update a show
+			this.onUpdateShow(data);
+		} else {
+			// send request to create a show
+			this.onCreateShow(data);
+		}		
+	},
+
+	/**
+	 * send request to update a show
+	 */
+	onUpdateShow(data) {
+		const { id } = this.data.show;
+
+		wx.request({
+			url: `${globalData.baseUrl}/shows/${id}`,
+			method: 'PUT',
+			header: globalData.header,
+			data: { show: data },
+			success(res) {
+				// nagivate to detail page
+				wx.navigateTo({
+					url: `/pages/shows/show/index?id=${res.data.show.id}`,
+				})
+
+				// show toast
+				wx.showToast({
+					title: '演出更新成功',
+				})
+			}
+		})
 	},
 
 	/**
@@ -85,11 +115,16 @@ Page({
 	 * fetch show inf0
 	 */
 	onFetchShowInfo(id) {
+		const _this = this;
+
 		wx.request({
 			url: `${globalData.baseUrl}/shows/${id}`,
 			header: globalData.header,
 			success(res) {
-				console.log('fetch show', res);
+				let { show } = res.data;
+				show.date = show.date.replace(/\//g, '-');
+				_this.setData({ show });
+				event.emit('infoReady');
 			}
 		})
 	},
@@ -98,7 +133,7 @@ Page({
 	 * Lifecycle function--Called when page load
 	 */
 	onLoad(options) {
-		const isEdit = options.isEdit || 'false';
+		const isEdit = options.isEdit || false;
 		const id = options.id || null;
 		this.setData({ isEdit, id });
 	},
@@ -114,17 +149,38 @@ Page({
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
-		// 设置当前日期
-		// 设置club信息
-		this.setData({
-			date: fetchCurrentDate(),
-			club: getApp().globalData.user.club
-		});
-
 		// 获取演出信息（编辑状态下）
-		if(this.data.isEdit) {
+		const isEdit = this.data.isEdit;
+		if(isEdit) {
 			this.onFetchShowInfo(this.data.id)
 		}
+
+		// 设置当前日期和时间
+		// 设置club信息
+		if(isEdit) {
+			if (this.data.show) {
+				this.onSetDateTime()
+			} else {
+				event.on('infoReady', this, this.onSetDateTime)
+			}
+		} else {
+			this.onSetDateTime()
+		}
+	},
+
+	/**
+	 * set data and time
+	 */
+	onSetDateTime() {
+		const isEdit = this.data.isEdit;
+		const show = this.data.show;
+
+		this.setData({
+			date: isEdit ? show.date : fetchCurrentDate(),
+			startTime: isEdit ? show.start_time : '19:00',
+			endTime: isEdit ? show.end_time : '21:30',
+			club: getApp().globalData.user.club
+		});
 	},
 
 	/**

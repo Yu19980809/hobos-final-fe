@@ -86,12 +86,15 @@ Page({
 	 * send request to delete a show
 	 */
 	onDestroyShow(id) {
+		const _this = this;
+
 		wx.request({
 			url: `${globalData.baseUrl}/shows/${id}`,
+			method: 'DELETE',
 			header: globalData.header,
 			success(res) {
 				// 1. fetch data again
-				this.onFetchCreatedShows();
+				_this.onFetchCreatedShows();
 
 				// 2. show toast
 				wx.showToast({

@@ -1,6 +1,6 @@
 <!-- 创建演出 -->
 <view class="container">
-	<form bindsubmit="onPostShow">
+	<form bindsubmit="onHandleShow">
 		<!-- info -->
 		<view class="py30">
 			<view class="f32 bold mb40">
@@ -14,7 +14,7 @@
 						<text>俱乐部</text>
 					</view>
 					<view class="right">
-						<text>{{ club.name }}</text>
+						<text>{{ isEdit? show.club_name : club.name }}</text>
 					</view>
 				</view>
 
@@ -24,7 +24,9 @@
 						<text>演出名称</text>
 					</view>
 					<view class="right">
-						<input name="showName" type="text" placeholder="新人训练赛"/>
+						<input name="showName" type="text" placeholder="新人训练赛"
+								value="{{ isEdit ? show.name : '' }}"
+						/>
 					</view>
 				</view>
 
@@ -34,7 +36,13 @@
 						<text>演出日期</text>
 					</view>
 					<view class="right">
-						<picker mode="date" value="{{ date }}" start="{{ date }}" end="2025-12-01" bindchange="bindDateChange">
+						<picker
+							mode="date"
+							value="{{ date }}"
+							start="{{ date }}"
+							end="2025-12-01"
+							bindchange="bindDateChange"
+						>
 							<view class="picker">
 								{{ date }}
 							</view>
@@ -48,7 +56,13 @@
 						<text>开始时间</text>
 					</view>
 					<view class="right">
-						<picker mode="time" value="{{ startTime }}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+						<picker
+							mode="time"
+							value="{{ startTime }}"
+							start="00:00"
+							end="23:59"
+							bindchange="bindStartTimeChange"
+						>
 							<view class="picker">
 								{{ startTime }}
 							</view>
@@ -62,7 +76,13 @@
 						<text>结束时间</text>
 					</view>
 					<view class="right">
-						<picker mode="time" value="{{ endTime }}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+						<picker
+							mode="time"
+							value="{{ endTime }}"
+							start="00:00"
+							end="23:59"
+							bindchange="bindEndTimeChange"
+						>
 							<view class="picker">
 								{{ endTime }}
 							</view>
@@ -76,7 +96,9 @@
 						<text>演出地址</text>
 					</view>
 					<view class="right">
-						<input name="address" type="text" placeholder="延平路425"/>
+						<input name="address" type="text" placeholder="延平路425"
+								value="{{ isEdit ? show.address : '' }}"
+						/>
 					</view>
 				</view>
 
@@ -86,7 +108,9 @@
 						<text>演出简介</text>
 					</view>
 					<view class="right">
-						<input name="description" type="text" placeholder="敬请期待"/>
+						<input name="description" type="text" placeholder="敬请期待"
+								value="{{ isEdit ? show.description : '' }}"
+						/>
 					</view>
 				</view>
 			</view>
@@ -94,7 +118,9 @@
 
 		<!-- button -->
 		<view class="button">
-			<button form-type="submit" class="pa0 btn-black f32 mauto my40">创建演出</button>
+			<button form-type="submit" class="pa0 btn-black f32 mauto my40">
+				{{ isEdit ? '更新演出' : '创建演出' }}
+			</button>
 		</view>
 	</form>
 </view>

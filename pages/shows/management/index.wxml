@@ -65,9 +65,9 @@
 
 				<view class="actions bg-black flex justify-around items-center {{ (isShowActions && show.id === currentShowId) ? 'active' : '' }}"
 				>
-					<view class="btn-normal" bindtap="onNavigateToShowEdit">编辑</view>
-					<view class="btn-normal" bindtap="onNavigateToDetailUpcoming">详情</view>
-					<view class="btn-normal" bindtap="onDeleteShow">删除</view>
+					<view class="btn-normal" catchtap="onNavigateToShowEdit">编辑</view>
+					<view class="btn-normal" catchtap="onNavigateToDetailUpcoming">详情</view>
+					<view class="btn-normal" catchtap="onDeleteShow">删除</view>
 				</view>
 			</view>
 		</view>
