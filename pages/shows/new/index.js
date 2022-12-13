@@ -149,8 +149,13 @@ Page({
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
-		// 获取演出信息（编辑状态下）
 		const isEdit = this.data.isEdit;
+
+		// 设置title
+		const title = isEdit ? '编辑演出' : '创建演出';
+		wx.setNavigationBarTitle({ title });
+
+		// 获取演出信息（编辑状态下）
 		if(isEdit) {
 			this.onFetchShowInfo(this.data.id)
 		}

@@ -6,7 +6,7 @@
 			type="text"
 			class="bar"
             placeholder="搜索"
-			value="{{ query }}"
+			bindinput="onHandleSearch"
 		>
 			<view class="cancelBtn">
 				<image src="/images/cross.svg" mode="aspectFill"/>
@@ -53,7 +53,16 @@
 					</view>
 				</view>
 				<view class="follow">
-					<text>关注</text>
+					<text
+						wx:if="{{ comedian.isFollowed }}"
+						data-id="{{ comedian.id }}"
+						bindtap="onCancelComedianFollow"
+					>取关</text>
+					<text
+						wx:else
+						data-id="{{ comedian.id }}"
+						bindtap="onNewComedianFollow"
+					>关注</text>
 				</view>
 			</view>
 		</view>
@@ -78,7 +87,17 @@
 					</view>
 				</view>
 				<view class="follow">
-					<text>关注</text>
+					<text
+						wx:if="{{ club.isFollowed }}"
+						data-id="{{ club.id }}"
+						bindtap="onCancelClubFollow"
+					>取关</text>
+
+					<text
+						wx:else
+						data-id="{{ club.id }}"
+						bindtap="onNewClubFollow"
+					>关注</text>
 				</view>
 			</view>
 		</view>

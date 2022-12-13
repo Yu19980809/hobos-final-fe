@@ -1,2 +1,98 @@
 <!-- 我的关注 -->
-<text>pages/followings/index/index.wxml</text>
+<view class="container">
+	<!-- search bar -->
+	<view class="search">
+		<input
+			type="text"
+			class="bar"
+            placeholder="搜索"
+			bindinput="onHandleSearch"
+		>
+			<view class="cancelBtn">
+				<image src="/images/cross.svg" mode="aspectFill"/>
+			</view>
+		</input>
+	</view>
+
+	<!-- filter -->
+	<view class="filter flex justify-end">
+		<view class="dropdown">
+			<view class="select_box">
+			<view class="select" catchtap="onSelectTaps">
+				<text class="select_text">{{ category[index] }}</text>
+				<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
+			</view>
+
+			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+				<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
+				style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
+			</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- lists -->
+	<view class="lists">
+		<view class="comedians" wx:if="{{ category[index] === '演员' }}">
+			<view wx:if="{{ followedComedians && followedComedians.length !== 0 }}">
+				<view
+					class="comedian"
+					wx:for="{{ followedComedians }}"
+					wx:for-item="comedian"
+					wx:key="index"
+				>
+					<view class="avatar">
+						<image src="{{ comedian.avatar }}" mode="aspectFill"/>
+					</view>
+					<view class="info">
+						<view class="name bold f32">
+							{{ comedian.nickname }}
+						</view>
+
+						<view class="slogan">
+							{{ comedian.slogan || '脱缰野马' }}
+						</view>
+					</view>
+					<view class="follow">
+						<text data-id="{{ comedian.id }}" bindtap="onCancelComedianFollow">取关</text>
+					</view>
+				</view>
+			</view>
+
+			<view wx:else>
+				<image src="/images/no-show.jpg" mode="aspectFill"/>
+			</view>
+		</view>
+
+		<view class="clubs"  wx:if="{{ category[index] === '俱乐部' }}">
+			<view wx:if="{{ followedClubs && followedClubs.length !== 0 }}">
+				<view
+					class="club"
+					wx:for="{{ followedClubs }}"
+					wx:for-item="club"
+					wx:key="index"
+				>
+					<view class="avatar">
+						<image src="{{ club.avatar }}" mode="aspectFill"/>
+					</view>
+					<view class="info">
+						<view class="name bold f32">
+							{{ club.name }}
+						</view>
+
+						<view class="description">
+							{{ club.description || '空空如也' }}
+						</view>
+					</view>
+					<view class="follow">
+						<text data-id="{{ club.id }}" bindtap="onCancelClubFollow">取关</text>
+					</view>
+				</view>
+			</view>
+
+			<view wx:else>
+				<image src="/images/no-show.jpg" mode="aspectFill"/>
+			</view>
+		</view>
+	</view>
+</view>

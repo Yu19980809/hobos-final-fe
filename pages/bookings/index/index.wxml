@@ -1,6 +1,24 @@
 <!-- 参与的演出（booking history） -->
 <view class="container">
-	<view wx:if="{{ (upcomingShows && upcomingShows.length !== 0) || (expiredShows && expiredShows.length !== 0) }}">
+	<!-- filter -->
+	<view class="filter flex justify-end">
+		<view class="dropdown">
+			<view class="select_box">
+			<view class="select" catchtap="onSelectTaps">
+				<text class="select_text">{{ category[index] }}</text>
+				<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
+			</view>
+
+			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+				<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
+				style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
+			</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- upcomingShows -->
+	<view wx:if="{{ category[index] === '近期热演' }}">
 		<view class="upcoming py20 px0" wx:if="{{ upcomingShows && upcomingShows.length !== 0 }}">
 			<view
 				class="card"
@@ -38,6 +56,13 @@
 			</view>
 		</view>
 
+		<view wx:else>
+			<image src="/images/no-show.jpg" mode="aspectFit"/>
+		</view>
+	</view>
+
+	<!-- expiredShows -->
+	<view wx:if="{{ category[index] === '往期演出' }}">
 		<view class="expired" wx:if="{{ expiredShows && expiredShows.length !== 0 }}">
 			<!-- title -->
 			<view class="title f36 mx0 mt60 mb40 bold">往期演出</view>
@@ -79,9 +104,9 @@
 				</view>
 			</view>
 		</view>
-	</view>
 
-	<view wx:else>
-		<image src="/images/no-show.jpg" mode="aspectFit"/>
+		<view wx:else>
+			<image src="/images/no-show.jpg" mode="aspectFit"/>
+		</view>
 	</view>
 </view>

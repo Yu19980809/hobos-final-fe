@@ -1,5 +1,4 @@
 /* pages/comedians/index/index.wxss */
-
 .lists > view > view {
     display: flex;
     height: 150rpx;
