@@ -8,7 +8,25 @@ Page({
 	 */
 	data: {
         isBooked: false
-    },
+	},
+	
+	/**
+	 * go to comedian detail page
+	 */
+	onNavigateToComeidanDetail(e) {
+		const { id } = e.currentTarget.dataset;
+		const followedComedians = globalData.user.followed_comedians;
+		let isFollowed = false;
+		followedComedians.forEach(fc => {
+			if(fc.id === id) {
+				isFollowed = true;
+			}
+		})
+
+		wx.navigateTo({
+			url: `/pages/comedians/show/index?comedianId=${id}&isFollowed=${isFollowed}`
+		})
+	},
 
     /**
      * cancel book

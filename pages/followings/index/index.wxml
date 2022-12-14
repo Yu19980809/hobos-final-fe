@@ -56,7 +56,7 @@
 						</view>
 					</view>
 					<view class="follow">
-						<text data-id="{{ comedian.id }}" bindtap="onCancelComedianFollow">取关</text>
+						<text data-id="{{ comedian.id }}" catchtap="onCancelComedianFollow">取关</text>
 					</view>
 				</view>
 			</view>
@@ -89,7 +89,7 @@
 						</view>
 					</view>
 					<view class="follow">
-						<text data-id="{{ club.id }}" bindtap="onCancelClubFollow">取关</text>
+						<text data-id="{{ club.id }}" catchtap="onCancelClubFollow">取关</text>
 					</view>
 				</view>
 			</view>
