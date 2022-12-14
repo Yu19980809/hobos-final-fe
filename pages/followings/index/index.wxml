@@ -40,6 +40,8 @@
 					wx:for="{{ followedComedians }}"
 					wx:for-item="comedian"
 					wx:key="index"
+					data-id="{{ comedian.id }}"
+					bindtap="onNagivateToComedianDetail"
 				>
 					<view class="avatar">
 						<image src="{{ comedian.avatar }}" mode="aspectFill"/>
@@ -71,6 +73,8 @@
 					wx:for="{{ followedClubs }}"
 					wx:for-item="club"
 					wx:key="index"
+					data-id="{{ club.id }}"
+					bindtap="onNagivateToClubDetail"
 				>
 					<view class="avatar">
 						<image src="{{ club.avatar }}" mode="aspectFill"/>

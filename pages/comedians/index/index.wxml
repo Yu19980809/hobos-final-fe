@@ -39,6 +39,9 @@
 				wx:for="{{ comedians }}"
 				wx:for-item="comedian"
 				wx:key="index"
+				data-id="{{ comedian.id }}"
+				data-follow="{{ comedian.isFollowed }}"
+				bindtap="onNagivateToComedianDetail"
 			>
 				<view class="avatar">
 					<image src="{{ comedian.avatar }}" mode="aspectFill"/>
@@ -56,12 +59,12 @@
 					<text
 						wx:if="{{ comedian.isFollowed }}"
 						data-id="{{ comedian.id }}"
-						bindtap="onCancelComedianFollow"
+						catchtap="onCancelComedianFollow"
 					>取关</text>
 					<text
 						wx:else
 						data-id="{{ comedian.id }}"
-						bindtap="onNewComedianFollow"
+						catchtap="onNewComedianFollow"
 					>关注</text>
 				</view>
 			</view>
@@ -73,6 +76,9 @@
 				wx:for="{{ clubs }}"
 				wx:for-item="club"
 				wx:key="index"
+				data-id="{{ club.id }}"
+				data-follow="{{ club.isFollowed }}"
+				bindtap="onNagivateToClubDetail"
 			>
 				<view class="avatar">
 					<image src="{{ club.avatar }}" mode="aspectFill"/>
@@ -90,13 +96,13 @@
 					<text
 						wx:if="{{ club.isFollowed }}"
 						data-id="{{ club.id }}"
-						bindtap="onCancelClubFollow"
+						catchtap="onCancelClubFollow"
 					>取关</text>
 
 					<text
 						wx:else
 						data-id="{{ club.id }}"
-						bindtap="onNewClubFollow"
+						catchtap="onNewClubFollow"
 					>关注</text>
 				</view>
 			</view>

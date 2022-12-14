@@ -15,6 +15,30 @@ Page({
 	},
 
 	/**
+	 * go to comedian detail page
+	 */
+	onNagivateToComedianDetail(e) {
+		const { id } = e.currentTarget.dataset;
+		const follow = e.currentTarget.dataset.follow || false;
+
+		wx.navigateTo({
+			url: `/pages/comedians/show/index?comedianId=${id}&isFollowed=${follow}`
+		})
+	},
+
+	/**
+	 * go to club detail page
+	 */
+	onNagivateToClubDetail(e) {
+		const { id } = e.currentTarget.dataset;
+		const follow = e.currentTarget.dataset.follow || false;
+
+		wx.navigateTo({
+			url: `/pages/comedians/show/index?clubId=${id}&isFollowed=${follow}`
+		})
+	},
+
+	/**
 	 * search comedians / clubs
 	 */
 	onHandleSearch(e) {
@@ -266,51 +290,51 @@ Page({
 	/**
 	 * get all comedian_followings
 	 */
-	onFetchAllComedianFollowings() {
-		const _this = this;
-		const { id } = globalData.user;
+	// onFetchAllComedianFollowings() {
+	// 	const _this = this;
+	// 	const { id } = globalData.user;
 
-		wx.request({
-			url: `${globalData.baseUrl}/users/${id}/comedian_followings`,
-			header: globalData.header,
-			success(res) {
-				const comedian_followings = res.data.comedian_followings;
-				let comedians = _this.data.comedians;
-				comedians.forEach((item, index) => {
-					comedian_followings.forEach(cf => {
-						if(item.id === cf.comedian_id) {
-							comedians[index]['isFollowed'] = true
-						}
-					})
+	// 	wx.request({
+	// 		url: `${globalData.baseUrl}/users/${id}/comedian_followings`,
+	// 		header: globalData.header,
+	// 		success(res) {
+	// 			const comedian_followings = res.data.comedian_followings;
+	// 			let comedians = _this.data.comedians;
+	// 			comedians.forEach((item, index) => {
+	// 				comedian_followings.forEach(cf => {
+	// 					if(item.id === cf.comedian_id) {
+	// 						comedians[index]['isFollowed'] = true
+	// 					}
+	// 				})
 
-				})
-			}
-		})
-	},
+	// 			})
+	// 		}
+	// 	})
+	// },
 
 	 /**
 	  * get all club_followings
 	  */
-	 onFetchAllClubFollowings() {
-		const _this = this;
-		const { id } = globalData.user;
+	//  onFetchAllClubFollowings() {
+	// 	const _this = this;
+	// 	const { id } = globalData.user;
 
-		wx.request({
-			url: `${globalData.baseUrl}/users/${id}/club_followings`,
-			header: globalData.header,
-			success(res) {
-				const club_followings = res.data.club_followings;
-				let clubs = _this.data.clubs;
-				clubs.forEach((item, index) => {
-					club_followings.forEach(cf => {
-						if(item.id === cf.club_id) {
-							clubs[index]['isFollowed'] = true
-						}
-					})
-				})
-			}
-		})
-	 },
+	// 	wx.request({
+	// 		url: `${globalData.baseUrl}/users/${id}/club_followings`,
+	// 		header: globalData.header,
+	// 		success(res) {
+	// 			const club_followings = res.data.club_followings;
+	// 			let clubs = _this.data.clubs;
+	// 			clubs.forEach((item, index) => {
+	// 				club_followings.forEach(cf => {
+	// 					if(item.id === cf.club_id) {
+	// 						clubs[index]['isFollowed'] = true
+	// 					}
+	// 				})
+	// 			})
+	// 		}
+	// 	})
+	//  },
 
 	/**
 	 * 点击下拉显示框

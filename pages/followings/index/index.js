@@ -15,6 +15,28 @@ Page({
 	},
 
 	/**
+	 * go to comedian detail page
+	 */
+	onNagivateToComedianDetail(e) {
+		const { id } = e.currentTarget.dataset;
+
+		wx.navigateTo({
+			url: `/pages/comedians/show/index?comedianId=${id}&isFollowed=true`
+		})
+	},
+
+	/**
+	 * go to club detail page
+	 */
+	onNagivateToClubDetail(e) {
+		const { id } = e.currentTarget.dataset;
+
+		wx.navigateTo({
+			url: `/pages/comedians/show/index?clubId=${id}&isFollowed=true`
+		})
+	},
+
+	/**
 	 * unfollow a comedian
 	 */
 	onCancelComedianFollow(e) {

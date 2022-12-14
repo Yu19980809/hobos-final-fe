@@ -1,7 +1,76 @@
-<!-- 参与的演出（booking history） -->
+<!-- 演员/俱乐部主页 -->
 <view class="container">
+	<!-- info part -->
+	<view class="infos">
+		<!-- comedian -->
+		<view class="comedian" wx:if="{{ comedianId }}">
+			<view class="infosTop">
+				<view class="avatar">
+					<image src="{{ comedian.avatar }}" mode="aspectFill"/>
+				</view>
+				<view class="info">
+					<view class="name bold f32">
+						{{ comedian.nickname }}
+					</view>
+
+					<view class="slogan">
+						{{ comedian.slogan || '脱缰野马' }}
+					</view>
+				</view>
+				<view class="follow">
+					<text
+						wx:if="{{ isFollowed }}"
+						bindtap="onCancelComedianFollow"
+					>取关</text>
+					<text
+						wx:else
+						bindtap="onNewComedianFollow"
+					>关注</text>
+				</view>
+			</view>
+
+			<view class="infosBottom">
+				<view>
+					<text class="key">舞台经验：</text>
+					<text>{{ comedian.experience || '空空如也' }}</text>
+				</view>
+			</view>
+		</view>
+
+		<!-- club -->
+		<view class="club" wx:if="{{ clubId }}">
+			<view class="infosTop">
+				<view class="avatar">
+					<image src="{{ club.avatar }}" mode="aspectFill"/>
+				</view>
+				<view class="info">
+					<view class="name bold f32">
+						{{ club.name }}
+					</view>
+				</view>
+				<view class="follow">
+					<text
+						wx:if="{{ isFollowed }}"
+						bindtap="onCancelClubFollow"
+					>取关</text>
+					<text
+						wx:else
+						bindtap="onNewClubFollow"
+					>关注</text>
+				</view>
+			</view>
+
+			<view class="infosBottom">
+				<view>
+					<text class="key">简介：</text>
+					<text>{{ club.description || '空空如也' }}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
 	<!-- filter -->
-	<view class="filter flex justify-end">
+	<view class="filter flex justify-end mt40">
 		<view class="dropdown">
 			<view class="select_box">
 			<view class="select" catchtap="onSelectTaps">
