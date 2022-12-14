@@ -46,7 +46,7 @@
 				<view class="name">
 					<view class="left">
 						<image src="/images/userEdit/user.svg" mode="aspectFill"/>
-						<text wx:if="{{ user.role === 'comedian' }}">艺名</text>
+						<text wx:if="{{ roles[index] === '演员' }}">艺名</text>
 						<text wx:else>用户名</text>
 					</view>
 					<view class="right">
@@ -60,7 +60,10 @@
 						<text>一句简介</text>
 					</view>
 					<view class="right">
-						<input name="slogan" type="text" value="{{ user.slogan || '脱缰野马' }}"/>
+						<input name="slogan" type="text"
+							placeholder="脱缰野马"
+							value="{{ currentRole === 'comedian' ? (user.slogan || '') : '' }}"
+						/>
 					</view>
 				</view>
 
@@ -70,7 +73,10 @@
 						<text>演出经验</text>
 					</view>
 					<view class="right">
-						<input name="experience" type="text" value="{{ user.experience || '暂无' }}"/>
+						<input name="experience" type="text"
+							placeholder="暂无"
+							value="{{ currentRole === 'comedian' ? (user.experience || '') : '' }}"
+						/>
 					</view>
 				</view>
 
@@ -80,7 +86,10 @@
 						<text>俱乐部名称</text>
 					</view>
 					<view class="right">
-						<input name="clubName" type="text" value="{{ user.club_name || '贰叁叁俱乐部' }}"/>
+						<input name="clubName" type="text"
+							placeholder="贰叁叁俱乐部"
+							value="{{ currentRole === 'holder' ? (user.club.name || '') : '' }}"
+						/>
 					</view>
 				</view>
 
@@ -90,7 +99,10 @@
 						<text>俱乐部地址</text>
 					</view>
 					<view class="right">
-						<input name="clubAddr" type="text" value="{{ user.club_address || '延平路425' }}"/>
+						<input name="clubAddr" type="text"
+							placeholder="延平路425"
+							value="{{ currentRole === 'holder' ? (user.club.address || '') : '' }}"
+						/>
 					</view>
 				</view>
 
@@ -100,7 +112,10 @@
 						<text>俱乐部简介</text>
 					</view>
 					<view class="right">
-						<input name="clubDesc" type="text" value="{{ user.club_desc || '空空如也' }}"/>
+						<input name="clubDesc" type="text"
+							placeholder="空空如也"
+							value="{{ currentRole === 'holder' ? (user.club.description || '') : '' }}"
+						/>
 					</view>
 				</view>
 			</view>

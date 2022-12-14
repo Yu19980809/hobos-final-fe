@@ -12,7 +12,7 @@
 
 		<view class="role f32">
 			<text wx:if="{{ user.role === 'audience' }}">观众</text>
-			<text wx:if="{{ user.role === 'comdian' }}">演员</text>
+			<text wx:if="{{ user.role === 'comedian' }}">演员</text>
 			<text wx:if="{{ user.role === 'holder' }}">主理人</text>
 		</view>
 

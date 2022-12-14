@@ -25,7 +25,7 @@
 .card .card-top .card-top-left .time {
     width: 338rpx;
     height: 48rpx;
-    font-size: 32rpx;
+    font-size: 30rpx;
     line-height: 48rpx;
 }
 

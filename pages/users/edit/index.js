@@ -46,7 +46,6 @@ Page({
 	 * update user info
 	 */
 	onEditUserInfo(e) {
-		console.log('edit user info', e);
 		// 1. 获取头像URL
 		const _this = this;
 		const avatar = this.data.avatarUrl;
@@ -68,24 +67,30 @@ Page({
 		let data;
 		const { nickname } = e.detail.value;
 		switch(role) {
-			case 'audience':
+			case 'comedian':
 				const { slogan, experience } = e.detail.value;
 				data = { avatar, role, nickname, slogan, experience };
 				break;
 			case 'holder':
 				const { clubName, clubAddr, clubDesc } = e.detail.value;
 				data = { avatar, role, nickname }
-				_this.onCreateClub({
+				const clubData = {
 					name: clubName,
 					address: clubAddr,
 					description: clubDesc
-				})
+				}
+
+				if(_this.data.currentRole === 'holdr') {
+					_this.onUpdateClub(clubData)
+				} else {
+					_this.onCreateClub(clubData)
+				}
 				break;
 			default:
 				data = { avatar, role, nickname };
 		}
 
-		// 3. 发起更新请求
+		// 4. 更新用户信息
 		this.onUpdateUserInfo(data);
 	},
 
@@ -102,14 +107,15 @@ Page({
 			header: globalData.header,
 			data: { user: data },
 			success(res) {
-				console.log('update user info successfully', res);
-				//保存更新后的用户信息
-				_this.setData({ user: res.data.user })
+				// update globalData
+				getApp().globalData.user = res.data.user;
 
+				// switch tabBar
 				wx.switchTab({
 					url: '/pages/users/index/index',
 				})
 
+				// show toast
 				wx.showToast({
 					title: '信息更新成功',
 				})
@@ -127,7 +133,26 @@ Page({
 			header: globalData.header,
 			data: { club: data },
 			success(res) {
-				console.log('create club', res);
+				// update globalData
+				getApp().globalData.user.club = res.data.club
+			}
+		})
+	},
+
+	/**
+	 * send request to update club
+	 */
+	onUpdateClub(data) {
+		const { id } = this.globalData.user.club;
+
+		wx.request({
+			url: `${globalData.baseUrl}/clubs/${id}`,
+			method: 'PUT',
+			header: globalData.header,
+			data: { club: data },
+			success(res) {
+				// update globalData
+				getApp().globalData.user.club = res.data.club
 			}
 		})
 	},
@@ -168,7 +193,8 @@ Page({
 		this.onSetIndex();
 		this.setData({
 			user: globalData.user,
-			avatarUrl: globalData.user.avatar
+			avatarUrl: globalData.user.avatar,
+			currentRole: globalData.user.role
 		});
 	},
 
