@@ -76,9 +76,25 @@ Page({
 	},
 
 	/**
+	 * fetch user data
+	 */
+	onFetchUserData() {
+		const { id } = globalData.user;
+
+		wx.request({
+			url: `${globalData.baseUrl}/users/${id}/infos`,
+			header: globalData.header,
+			success(res) {
+				console.log('fetch user data', res);
+			}
+		})
+	},
+
+	/**
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
+		// fetch user data
 		this.setData({ user: globalData.user });
 	},
 

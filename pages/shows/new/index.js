@@ -24,11 +24,14 @@ Page({
 			url: `${globalData.baseUrl}/comedians`,
 			header: globalData.header,
 			success(res) {
+				// set category
 				let comedians = [];
 				res.data.comedians.forEach(comedian => {
 					comedians.unshift(comedian.nickname)
 				})
+				_this.setData({ comedians: res.data.comedians });
 				_this.setData({ category: comedians });
+				event.emit('categoryReady')	;
 			}
 		})
 	},
@@ -82,6 +85,7 @@ Page({
 	 * send request to update a show
 	 */
 	onUpdateShow(data) {
+		const _this = this;
 		const { id } = this.data.show;
 
 		wx.request({
@@ -90,6 +94,14 @@ Page({
 			header: globalData.header,
 			data: { show: data },
 			success(res) {
+				// check whether comedian changed or not
+				const oldComedian = _this.data.show.comedians[0].nickname;
+				const currentComedian = _this.data.category[_this.data.index];
+				if(oldComedian !== currentComedian) {
+					_this.onDestroyShowComedian(res.data.show.id);
+					_this.onCreateShowComedian(res.data.show.id);
+				}
+
 				// nagivate to detail page
 				wx.navigateTo({
 					url: `/pages/shows/show/index?id=${res.data.show.id}`,
@@ -107,12 +119,17 @@ Page({
 	 * send request to create a show
 	 */
 	onCreateShow(data) {
+		const _this = this;
+
 		wx.request({
 			url: `${globalData.baseUrl}/shows`,
 			method: 'POST',
 			header: globalData.header,
 			data: { show: data },
 			success(res) {
+				// send rquest to create a show_comedian
+				_this.onCreateShowComedian(res.data.show.id);
+
 				// nagivate to detail page
 				wx.navigateTo({
 					url: `/pages/shows/show/index?id=${res.data.show.id}`,
@@ -129,12 +146,40 @@ Page({
 	/**
 	 * send request to create a show_comedian
 	 */
-	onCreateShowComedian() {},
+	onCreateShowComedian(showId) {
+		const comedianName = this.data.category[this.data.index];
+		let comedianId;
+		this.data.comedians.forEach(comedian => {
+			if(comedian.nickname === comedianName) {
+				comedianId = comedian.id
+			}
+		})
+
+		wx.request({
+			url: `${globalData.baseUrl}/show_comedians`,
+			method: 'POST',
+			header: globalData.header,
+			data: {
+				show_comedian: {
+					show_id: showId,
+					user_id: comedianId
+				}
+			}
+		})
+	},
 
 	/**
 	 * send request to delete a show_comedian
 	 */
-	onCreateShowComedian() {},
+	onDestroyShowComedian(showId) {
+		const comedianId = this.data.show.comedians[0].id;
+		
+		wx.request({
+			url: `${globalData.baseUrl}/show_comedians/0?show_id=${showId}&comedian_id=${comedianId}`,
+			method: 'DELETE',
+			header: globalData.header
+		})
+	},
 
 	/**
 	 * select date
@@ -167,10 +212,18 @@ Page({
 			url: `${globalData.baseUrl}/shows/${id}`,
 			header: globalData.header,
 			success(res) {
+				// set show info
 				let { show } = res.data;
 				show.date = show.date.replace(/\//g, '-');
 				_this.setData({ show });
 				event.emit('infoReady');
+
+				// set comedian
+				if(_this.data.category) {
+					_this.onSetComedian()
+				} else {
+					event.on('categoryReady', _this, _this.onSetComedian)
+				}
 			}
 		})
 	},
@@ -189,6 +242,18 @@ Page({
 	 */
 	onReady() {
 
+	},
+
+	/**
+	 * set comedian
+	 */
+	onSetComedian() {
+		const comedians = this.data.category;
+		const comedian = this.data.show.comedians[0];
+		const comedianIndex = comedians.findIndex(function(item) {
+			return comedian.nickname === item
+		})
+		this.setData({ index: comedianIndex });
 	},
 
 	/**
@@ -212,7 +277,7 @@ Page({
 		// 设置当前日期和时间
 		// 设置club信息
 		if(isEdit) {
-			if (this.data.show) {
+			if(this.data.show) {
 				this.onSetDateTime()
 			} else {
 				event.on('infoReady', this, this.onSetDateTime)
