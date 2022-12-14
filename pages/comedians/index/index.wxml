@@ -5,10 +5,15 @@
 		<input
 			type="text"
 			class="bar"
-            placeholder="搜索"
 			value="{{ query }}"
+            placeholder="搜索"
+			bindinput="onHandleSearch"
 		>
-			<view class="cancelBtn">
+			<view
+				wx:if="{{ query && query !== '' }}"
+				class="cancelBtn"
+				catchtap="onCancelSearch"
+			>
 				<image src="/images/cross.svg" mode="aspectFill"/>
 			</view>
 		</input>
@@ -23,7 +28,7 @@
 				<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
 			</view>
 
-			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*70):0 }}rpx;">
 				<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
 				style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
 			</view>
@@ -39,6 +44,9 @@
 				wx:for="{{ comedians }}"
 				wx:for-item="comedian"
 				wx:key="index"
+				data-id="{{ comedian.id }}"
+				data-follow="{{ comedian.isFollowed }}"
+				bindtap="onNagivateToComedianDetail"
 			>
 				<view class="avatar">
 					<image src="{{ comedian.avatar }}" mode="aspectFill"/>
@@ -53,7 +61,17 @@
 					</view>
 				</view>
 				<view class="follow">
-					<text>关注</text>
+					<text
+						class="unfollow"
+						wx:if="{{ comedian.isFollowed }}"
+						data-id="{{ comedian.id }}"
+						catchtap="onCancelComedianFollow"
+					>取关</text>
+					<text
+						wx:else
+						data-id="{{ comedian.id }}"
+						catchtap="onNewComedianFollow"
+					>关注</text>
 				</view>
 			</view>
 		</view>
@@ -64,6 +82,9 @@
 				wx:for="{{ clubs }}"
 				wx:for-item="club"
 				wx:key="index"
+				data-id="{{ club.id }}"
+				data-follow="{{ club.isFollowed }}"
+				bindtap="onNagivateToClubDetail"
 			>
 				<view class="avatar">
 					<image src="{{ club.avatar }}" mode="aspectFill"/>
@@ -78,7 +99,18 @@
 					</view>
 				</view>
 				<view class="follow">
-					<text>关注</text>
+					<text
+						class="unfollow"
+						wx:if="{{ club.isFollowed }}"
+						data-id="{{ club.id }}"
+						catchtap="onCancelClubFollow"
+					>取关</text>
+
+					<text
+						wx:else
+						data-id="{{ club.id }}"
+						catchtap="onNewClubFollow"
+					>关注</text>
 				</view>
 			</view>
 		</view>

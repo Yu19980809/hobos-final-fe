@@ -6,5 +6,5 @@
 @import './logo';
 @import './overlay';
 @import './tag';
-@import './search_bar.wxss';
+@import './searchBar.wxss';
 @import './dropdownMenu.wxss';

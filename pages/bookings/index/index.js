@@ -10,7 +10,24 @@ Page({
 	 * Page initial data
 	 */
 	data: {
+		index: 0,
+		isMenuShow: false,
+		category: ['近期热演', '往期演出']
+	},
 
+	/**
+	 * 点击下拉显示框
+	 */
+	onSelectTaps(e) {
+		this.setData({ isMenuShow: !this.data.isMenuShow });
+	},
+
+	/**
+	 * 点击下拉列表
+	 */
+	onOptionTaps(e) {
+		const index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+		this.setData({ index, isMenuShow: !this.data.isMenuShow });
 	},
 
 	/**

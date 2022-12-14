@@ -1,9 +1,4 @@
 /* pages/bookings/index/index.wxss */
-.expired .title {
-    height: 58rpx;
-    line-height: 58rpx;
-}
-
 .expired .card {
     background-color: #D9D9D9;
 }

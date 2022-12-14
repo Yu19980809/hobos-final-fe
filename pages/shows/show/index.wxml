@@ -43,15 +43,17 @@
     <!-- comedian -->
     <view class="comedian py40 px0">
         <view class="title mb20 f32 bold">登场演员</view>
-        <view class="avatars flex items-center">
-            <image
-                src="{{ comedian.avatar }}"
-                mode="aspectFill"
-                class="circle mr20"
-                wx:for="{{ show.comedians }}"
-                wx:for-item="comedian"
-                wx:key="index"
-            />
+        <view class="names flex items-center">
+			<view
+				class="comedianName bg-black pa px20 radius10 white bold mr"
+				wx:for="{{ show.comedians }}"
+				wx:for-item="comedian"
+				wx:key="index"
+				data-id="{{ comedian.id }}"
+				bindtap="onNavigateToComeidanDetail"
+			>
+				{{ comedian.nickname }}
+			</view>
         </view>
     </view>
 

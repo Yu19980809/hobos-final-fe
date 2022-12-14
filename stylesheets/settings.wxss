@@ -47,7 +47,7 @@ page {
 }
 
 .container {
-  padding: 24rpx 50rpx;
+  padding: 24rpx 70rpx;
   box-sizing: border-box;
   background-position: center;
   background-repeat: no-repeat;

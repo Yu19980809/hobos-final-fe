@@ -1,5 +1,5 @@
 <!--用户信息（即“我的”页面）-->
-<view class="container px80">
+<view class="container">
 	<!-- 个人信息 -->
 	<view class="info bbox pa py30 flex column items-center white bold radius20">
 		<view class="avatar">
@@ -12,78 +12,85 @@
 
 		<view class="role f32">
 			<text wx:if="{{ user.role === 'audience' }}">观众</text>
-			<text wx:if="{{ user.role === 'comdian' }}">演员</text>
+			<text wx:if="{{ user.role === 'comedian' }}">演员</text>
 			<text wx:if="{{ user.role === 'holder' }}">主理人</text>
 		</view>
 
-		<view class="followers f24 b px20 radius20 mt20" wx:if="{{ user.role !== 'audience' }}">
+		<view class="followers f24 b px20 radius20 mt20 tc" wx:if="{{ user.role !== 'audience' }}">
 			<view wx:if="{{ user.role === 'comedian' }}">
-				关注人数： 
+				粉丝数： 
 				<text class="f32">{{ user.comedian_followers.length }}</text>
 			</view>
 			<view wx:if="{{ user.role === 'holder' }}">
-				关注人数： 
+				粉丝数： 
 				<text class="f32">{{ user.club_followers.length }}</text>
 			</view>
 		</view>
 	</view>
 
 	<!-- 操作列表 -->
-	<view class="actions flex column items-center bbox pa20 black">
-		<view class="doc">
+	<view class="actions flex column items-center bbox pa20 black bold">
+		<view class="doc" bindtap="onNavigateToInfo">
 			<view class="left">
 				<image src="/images/profile/profile.svg" mode="aspectFill"/>
 				<text>我的档案</text>
 			</view>
-			<view class="right" bindtap="onNavigateToInfo">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="follow">
+		<view class="follow"  bindtap="onNavigateToFollowing">
 			<view class="left">
 				<image src="/images/profile/like.svg" mode="aspectFill"/>
 				<text>我的关注</text>
 			</view>
-			<view class="right" bindtap="onNavigateToFollowing">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="history">
+		<view class="history"  bindtap="onNavigateToBookingHistory">
 			<view class="left">
 				<image src="/images/profile/stage.svg" mode="aspectFill"/>
 				<text>演出历史</text>
 			</view>
-			<view class="right" bindtap="onNavigateToBookingHistory">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="management">
+		<view
+			wx:if="{{ user.role === 'holder' }}"
+			class="management"
+			bindtap="onNavigateToShowManagement"
+		>
 			<view class="left">
 				<image src="/images/profile/manage.svg" mode="aspectFill"/>
 				<text>演出管理</text>
 			</view>
-			<view class="right" bindtap="onNavigateToShowManagement">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
 		</view>
 
-		<view class="logout">
+		<!-- <view class="logout"  bindtap="onLogout">
 			<view class="left">
 				<image src="/images/profile/delete.svg" mode="aspectFill"/>
 				<text>注销</text>
 			</view>
-			<view class="right" bindtap="onLogout">
+			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
-		</view>
+		</view> -->
 	</view>
 
 	<!-- 帮助 -->
 	<view class="help bbox bt pa pt30">
-		<view class="flex justify-between items-center">
+		<button
+			class="flex justify-between items-center pa0 ma0 w100 bg-white"
+			open-type="contact"
+		>
 			<view class="left w80 flex items-center">
 				<image src="/images/profile/help.svg" mode="aspectFill"/>
 				<text class="ml20 f32" style="letter-spacing: 4rpx;">帮助和反馈</text>
@@ -91,6 +98,6 @@
 			<view class="right w20 tr">
 				<image src="/images/profile/arrow.svg" mode="aspectFill"/>
 			</view>
-		</view>
+		</button>
 	</view>
 </view>

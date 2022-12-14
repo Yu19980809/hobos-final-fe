@@ -13,16 +13,23 @@
 
 /* card */
 .upcoming .card {
-	margin-bottom: 120rpx;
+	margin-bottom: 50rpx;
 }
+
 
 /* actions */
 .actions {
-	width: 580rpx;
-	height: 100rpx;
-	margin-top: 24rpx;
+    width: 100%;
+	height: 0;
+	overflow: hidden;
+	transform: translateY(24rpx);
 	border-bottom-left-radius: 20rpx;
-	border-bottom-right-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+	transition: height .5s ease-in-out;
+}
+
+.active {
+	height: 100rpx;
 }
 
 /* expired part */

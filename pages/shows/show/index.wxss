@@ -69,13 +69,13 @@
     line-height: 40rpx;
 }
 
-.memcomedianber .avatars {
+.comedian .names {
     height: 100rpx;
 }
 
-.comedian .avatars image {
-    width: 80rpx;
-    height: 80rpx;
+.comedian .names .view {
+	min-width: 40rpx;
+	height: 60rpx;
 }
 
 /* member */

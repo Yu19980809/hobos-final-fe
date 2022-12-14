@@ -14,6 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+// 区分过期演出和未过期演出
 const checkShowExpired = (_this, shows) => {
 	const currentTime = new Date();
 	const upcomingShows = [];
@@ -43,20 +44,19 @@ const checkShowExpired = (_this, shows) => {
 	_this.setData({ upcomingShows, expiredShows });
 }
 
-// 点击下拉显示框
-const onSelectTaps = e => {
-	this.setData({ isMenuShow: !this.data.isMenuShow });
+// 获取当前日期
+const fetchCurrentDate = () =>  {
+	const now = new Date();
+	const year = now.getFullYear();
+	const month = now.getMonth() + 1;
+	const date = now.getDate();
+
+	return `${year}-${month}-${date}`;
 }
 
-// 点击下拉列表
-const onOptionTaps = e => {
-	const index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-	this.setData({ index, isMenuShow: !this.data.isMenuShow });
-}
 
 module.exports = {
   formatTime,
   checkShowExpired,
-  onSelectTaps,
-  onOptionTaps
+  fetchCurrentDate
 }
