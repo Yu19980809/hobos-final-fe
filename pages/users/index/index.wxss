@@ -17,7 +17,7 @@
 }
 
 .followers {
-	width: 160rpx;
+	width: 140rpx;
 	background-color: rgb(142,80,88);
 }
 

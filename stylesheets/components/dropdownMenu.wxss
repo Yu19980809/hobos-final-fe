@@ -61,7 +61,7 @@
  
 .option-list {
   display: block;
-  line-height: 80rpx;
+  line-height: 50rpx;
   font-size: 32rpx;
   border-bottom: 1px solid #efefef;
   padding: 10rpx;

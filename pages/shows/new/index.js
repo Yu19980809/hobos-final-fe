@@ -10,6 +10,42 @@ Page({
 	 * Page initial data
 	 */
 	data: {
+		index: 0,
+		isMenuShow: false,
+	},
+
+	/**
+	 * get all comedians
+	 */
+	onFetchAllComeidans() {
+		const _this = this;
+
+		wx.request({
+			url: `${globalData.baseUrl}/comedians`,
+			header: globalData.header,
+			success(res) {
+				let comedians = [];
+				res.data.comedians.forEach(comedian => {
+					comedians.unshift(comedian.nickname)
+				})
+				_this.setData({ category: comedians });
+			}
+		})
+	},
+
+	/**
+	 * 点击下拉显示框
+	 */
+	onSelectTaps(e) {
+		this.setData({ isMenuShow: !this.data.isMenuShow });
+	},
+
+	/**
+	 * 点击下拉列表
+	 */
+	onOptionTaps(e) {
+		const index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+		this.setData({ index, isMenuShow: !this.data.isMenuShow });
 	},
 
 	/**
@@ -91,6 +127,16 @@ Page({
 	},
 
 	/**
+	 * send request to create a show_comedian
+	 */
+	onCreateShowComedian() {},
+
+	/**
+	 * send request to delete a show_comedian
+	 */
+	onCreateShowComedian() {},
+
+	/**
 	 * select date
 	 */
 	bindDateChange: function(e) {
@@ -149,6 +195,9 @@ Page({
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
+		// 获取全部演员
+		this.onFetchAllComeidans();
+
 		const isEdit = this.data.isEdit;
 
 		// 设置title

@@ -52,7 +52,7 @@
 
 				<view class="startTime">
 					<view class="left">
-						<image src="/images/showNew/time.svg" mode="aspectFill"/>
+						<image src="/images/showNew/startTime.svg" mode="aspectFill"/>
 						<text>开始时间</text>
 					</view>
 					<view class="right">
@@ -72,7 +72,7 @@
 
 				<view class="endTime">
 					<view class="left">
-						<image src="/images/showNew/time.svg" mode="aspectFill"/>
+						<image src="/images/showNew/endTime.svg" mode="aspectFill"/>
 						<text>结束时间</text>
 					</view>
 					<view class="right">
@@ -101,6 +101,30 @@
 						/>
 					</view>
 				</view>
+
+				<!-- <view class="comedian">
+					<view class="left">
+						<image src="/images/address.svg" mode="aspectFill"/>
+						<text>登场演员</text>
+					</view>
+					<view class="right">
+						<view class="filter flex justify-end">
+							<view class="dropdown">
+								<view class="select_box">
+								<view class="select" catchtap="onSelectTaps">
+									<text class="select_text">{{ category[index] }}</text>
+									<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
+								</view>
+
+								<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+									<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
+									style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
+								</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view> -->
 
 				<view class="description">
 					<view class="left">

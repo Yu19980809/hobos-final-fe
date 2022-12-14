@@ -9,9 +9,19 @@ Page({
 	 * Page initial data
 	 */
 	data: {
+		query: '',
 		index: 0,
 		isMenuShow: false,
 		category: ['演员', '俱乐部']
+	},
+
+	onCancelSearch() {
+		// 1. clear the search bar
+		// 2. change search status
+		this.setData({ query: '', isSearch: false });
+
+		// 3. fetch all comedians/clubs
+		this.onFetchData();
 	},
 
 	/**

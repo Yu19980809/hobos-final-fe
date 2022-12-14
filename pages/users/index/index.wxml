@@ -16,13 +16,13 @@
 			<text wx:if="{{ user.role === 'holder' }}">主理人</text>
 		</view>
 
-		<view class="followers f24 b px20 radius20 mt20" wx:if="{{ user.role !== 'audience' }}">
+		<view class="followers f24 b px20 radius20 mt20 tc" wx:if="{{ user.role !== 'audience' }}">
 			<view wx:if="{{ user.role === 'comedian' }}">
-				粉丝人数： 
+				粉丝数： 
 				<text class="f32">{{ user.comedian_followers.length }}</text>
 			</view>
 			<view wx:if="{{ user.role === 'holder' }}">
-				粉丝人数： 
+				粉丝数： 
 				<text class="f32">{{ user.club_followers.length }}</text>
 			</view>
 		</view>

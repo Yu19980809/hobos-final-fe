@@ -10,7 +10,7 @@
 			bindinput="onSearchShow"
 		>
 
-			<view class="cancelBtn" bindtap="onCancelSearch">
+			<view class="cancelBtn" catchtap="onCancelSearch">
 				<image src="/images/cross.svg" mode="aspectFill"/>
 			</view>
 		</input>
