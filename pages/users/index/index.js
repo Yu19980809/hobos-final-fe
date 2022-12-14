@@ -79,13 +79,15 @@ Page({
 	 * fetch user data
 	 */
 	onFetchUserData() {
+		const _this = this;
 		const { id } = globalData.user;
 
 		wx.request({
 			url: `${globalData.baseUrl}/users/${id}/infos`,
 			header: globalData.header,
 			success(res) {
-				console.log('fetch user data', res);
+				_this.setData({ user: res.data.user });
+				getApp().globalData.user = res.data.user;
 			}
 		})
 	},
@@ -95,7 +97,8 @@ Page({
 	 */
 	onShow() {
 		// fetch user data
-		this.setData({ user: globalData.user });
+		// this.setData({ user: globalData.user });
+		this.onFetchUserData()
 	},
 
 	/**

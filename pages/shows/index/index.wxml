@@ -10,7 +10,11 @@
 			bindinput="onSearchShow"
 		>
 
-			<view class="cancelBtn" catchtap="onCancelSearch">
+			<view
+				wx:if="{{ query && query !== '' }}"
+				class="cancelBtn"
+				catchtap="onCancelSearch"
+			>
 				<image src="/images/cross.svg" mode="aspectFill"/>
 			</view>
 		</input>

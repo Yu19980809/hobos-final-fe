@@ -57,6 +57,10 @@
     height: 100%;
 }
 
+.infos > view .infosTop .follow .unfollow {
+	background-color: rgba(100, 86, 87, 255);
+}
+
 .infos > view .infosTop .follow text {
 	height: 60rpx;
     padding: 4rpx 24rpx;

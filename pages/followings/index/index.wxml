@@ -9,7 +9,11 @@
             placeholder="搜索"
 			bindinput="onHandleSearch"
 		>
-			<view class="cancelBtn" catchtap="onCancelSearch">
+			<view
+				wx:if="{{ query && query !== '' }}"
+				class="cancelBtn"
+				catchtap="onCancelSearch"
+			>
 				<image src="/images/cross.svg" mode="aspectFill"/>
 			</view>
 		</input>
@@ -57,7 +61,7 @@
 						</view>
 					</view>
 					<view class="follow">
-						<text data-id="{{ comedian.id }}" catchtap="onCancelComedianFollow">取关</text>
+						<text class="unfollow" data-id="{{ comedian.id }}" catchtap="onCancelComedianFollow">取关</text>
 					</view>
 				</view>
 			</view>
@@ -90,7 +94,7 @@
 						</view>
 					</view>
 					<view class="follow">
-						<text data-id="{{ club.id }}" catchtap="onCancelClubFollow">取关</text>
+						<text class="unfollow" data-id="{{ club.id }}" catchtap="onCancelClubFollow">取关</text>
 					</view>
 				</view>
 			</view>

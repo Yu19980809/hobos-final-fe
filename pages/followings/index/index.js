@@ -154,11 +154,11 @@ Page({
 	onHandleSearch(e) {
 		const _this = this;
 
-		// 1. change search status
-		this.setData({ isSearch: true });
-
-		// 2. get the query content
+		// 1. get the query content
 		const query = e.detail.value;
+
+		// 2. change search status and set query
+		this.setData({ isSearch: true, query });
 
 		// 3. search by this query content
 		if (query === '') {

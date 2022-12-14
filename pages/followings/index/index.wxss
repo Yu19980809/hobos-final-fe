@@ -58,3 +58,7 @@
     font-weight: bold;
     background-color: rgb(251, 146, 158, .6);
 }
+
+.lists > view > view > view .follow .unfollow {
+	background-color: rgba(100, 86, 87, 255);
+}

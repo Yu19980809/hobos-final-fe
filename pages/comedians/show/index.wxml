@@ -19,6 +19,7 @@
 				</view>
 				<view class="follow">
 					<text
+						class="unfollow"
 						wx:if="{{ isFollowed }}"
 						bindtap="onCancelComedianFollow"
 					>取关</text>
@@ -50,6 +51,7 @@
 				</view>
 				<view class="follow">
 					<text
+						class="unfollow"
 						wx:if="{{ isFollowed }}"
 						bindtap="onCancelClubFollow"
 					>取关</text>
