@@ -2,7 +2,7 @@
 
 /* info part */
 .info {
-	height: 600rpx;
+	max-height: 600rpx;
 	background-color: #000;
 }
 

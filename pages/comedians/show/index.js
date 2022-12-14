@@ -253,6 +253,10 @@ Page({
 	 * Lifecycle function--Called when page show
 	 */
 	onShow() {
+		// set title
+		const title = this.data.comedianId ? '演员信息' : '俱乐部信息';
+		wx.setNavigationBarTitle({ title });
+
 		// fech comedian/club data
 		if(this.data.comedianId) {
 			this.onFetchComedianInfo(this.data.comedianId)

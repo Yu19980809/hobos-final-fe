@@ -19,18 +19,27 @@
 		"navigationBarTextStyle": "black"
 	},
 	"tabBar": {
+		"color": "#ccc",
+		"selectedColor": "#000",
+		"backgroundColor": "rgba(0, 0, 0, .4)",
 		"list": [
 			{
 				"pagePath": "pages/shows/index/index",
-				"text": "首页"
+				"text": "首页",
+				"iconPath": "images/tabBar/home.png",
+				"selectedIconPath": "images/tabBar/homeSelected.png"
 			},
 			{
 				"pagePath": "pages/comedians/index/index",
-				"text": "演员"
+				"text": "演员",
+				"iconPath": "images/tabBar/comedian.png",
+				"selectedIconPath": "images/tabBar/comedianSelected.png"
 			},
 			{
 				"pagePath": "pages/users/index/index",
-				"text": "我的"
+				"text": "我的",
+				"iconPath": "images/tabBar/me.png",
+				"selectedIconPath": "images/tabBar/meSelected.png"
 			}
 		]
 	},
