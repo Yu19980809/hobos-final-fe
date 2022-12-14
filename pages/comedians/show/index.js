@@ -240,8 +240,6 @@ Page({
 		const { comedianId, clubId } = options;
 		const isFollowed = options.isFollowed === 'true'
 		this.setData({ comedianId, clubId, isFollowed });
-		console.log('isFollowed', isFollowed)
-		console.log('isFollowed type', this.data.isFollowed)
 	},
 
 	/**

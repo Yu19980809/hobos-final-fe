@@ -29,7 +29,7 @@
 	</view>
 
 	<!-- 操作列表 -->
-	<view class="actions flex column items-center bbox pa20 black">
+	<view class="actions flex column items-center bbox pa20 black bold">
 		<view class="doc" bindtap="onNavigateToInfo">
 			<view class="left">
 				<image src="/images/profile/profile.svg" mode="aspectFill"/>
@@ -74,7 +74,7 @@
 			</view>
 		</view>
 
-		<view class="logout"  bindtap="onLogout">
+		<!-- <view class="logout"  bindtap="onLogout">
 			<view class="left">
 				<image src="/images/profile/delete.svg" mode="aspectFill"/>
 				<text>注销</text>
@@ -82,12 +82,15 @@
 			<view class="right">
 				<image src="/images/profile/right.svg" mode="aspectFill"/>
 			</view>
-		</view>
+		</view> -->
 	</view>
 
 	<!-- 帮助 -->
 	<view class="help bbox bt pa pt30">
-		<view class="flex justify-between items-center">
+		<button
+			class="flex justify-between items-center pa0 ma0 w100 bg-white"
+			open-type="contact"
+		>
 			<view class="left w80 flex items-center">
 				<image src="/images/profile/help.svg" mode="aspectFill"/>
 				<text class="ml20 f32" style="letter-spacing: 4rpx;">帮助和反馈</text>
@@ -95,6 +98,6 @@
 			<view class="right w20 tr">
 				<image src="/images/profile/arrow.svg" mode="aspectFill"/>
 			</view>
-		</view>
+		</button>
 	</view>
 </view>
