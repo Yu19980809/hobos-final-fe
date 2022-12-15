@@ -104,7 +104,7 @@
 
 				<view class="comedian">
 					<view class="left">
-						<image src="/images/address.svg" mode="aspectFill"/>
+						<image src="/images/user.svg" mode="aspectFill"/>
 						<text>登场演员</text>
 					</view>
 					<view class="right">

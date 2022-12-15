@@ -298,55 +298,6 @@ Page({
 	},
 
 	/**
-	 * get all comedian_followings
-	 */
-	// onFetchAllComedianFollowings() {
-	// 	const _this = this;
-	// 	const { id } = globalData.user;
-
-	// 	wx.request({
-	// 		url: `${globalData.baseUrl}/users/${id}/comedian_followings`,
-	// 		header: globalData.header,
-	// 		success(res) {
-	// 			const comedian_followings = res.data.comedian_followings;
-	// 			let comedians = _this.data.comedians;
-	// 			comedians.forEach((item, index) => {
-	// 				comedian_followings.forEach(cf => {
-	// 					if(item.id === cf.comedian_id) {
-	// 						comedians[index]['isFollowed'] = true
-	// 					}
-	// 				})
-
-	// 			})
-	// 		}
-	// 	})
-	// },
-
-	 /**
-	  * get all club_followings
-	  */
-	//  onFetchAllClubFollowings() {
-	// 	const _this = this;
-	// 	const { id } = globalData.user;
-
-	// 	wx.request({
-	// 		url: `${globalData.baseUrl}/users/${id}/club_followings`,
-	// 		header: globalData.header,
-	// 		success(res) {
-	// 			const club_followings = res.data.club_followings;
-	// 			let clubs = _this.data.clubs;
-	// 			clubs.forEach((item, index) => {
-	// 				club_followings.forEach(cf => {
-	// 					if(item.id === cf.club_id) {
-	// 						clubs[index]['isFollowed'] = true
-	// 					}
-	// 				})
-	// 			})
-	// 		}
-	// 	})
-	//  },
-
-	/**
 	 * 点击下拉显示框
 	 */
 	onSelectTaps(e) {
@@ -389,19 +340,15 @@ Page({
 
 		// 获取comedian_following信息
 		if(this.data.comedians) {
-			// this.onFetchAllComedianFollowings();
 			this.onCheckComedianFollowed;
 		} else {
-			// event.on('comediansReady', this, this.onFetchAllComedianFollowings)
 			event.on('comediansReady', this, this.onCheckComedianFollowed)
 		}
 
 		// 获取club_followings信息
 		if(this.data.clubs) {
-			// this.onFetchAllClubFollowings()
 			this.onCheckClubFollowed()
 		} else {
-			// event.on('clubsReady', this, this.onFetchAllClubFollowings)
 			event.on('clubsReady', this, this.onCheckClubFollowed)
 		}
 	},
@@ -450,7 +397,8 @@ Page({
 	 * Lifecycle function--Called when page hide
 	 */
 	onHide() {
-
+		// clear search bar content
+		this.setData({ query: '' })
 	},
 
 	/**

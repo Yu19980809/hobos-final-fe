@@ -45,12 +45,12 @@
 
 				<view class="name">
 					<view class="left">
-						<image src="/images/userEdit/user.svg" mode="aspectFill"/>
+						<image src="/images/user.svg" mode="aspectFill"/>
 						<text wx:if="{{ roles[index] === '演员' }}">艺名</text>
 						<text wx:else>用户名</text>
 					</view>
 					<view class="right">
-						<input name="nickname" type="text" value="{{ user.nickname }}"/>
+						<input name="nickname" type="text" value="{{ user.nickname }}" placeholder="路人甲"/>
 					</view>
 				</view>
 

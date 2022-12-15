@@ -73,7 +73,7 @@
 
 .infos > view .infosBottom {
 	min-height: 100rpx;
-	max-height: 300rpx;
+	/* max-height: 285rpx; */
 	padding: 20rpx 5%;
 	transform: translateY(-1rpx);
 	background-color: #000;

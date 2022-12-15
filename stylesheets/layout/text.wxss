@@ -38,3 +38,6 @@
 
 /* LINE HEIGHT */
 .lh-copy { line-height: 1.1rem;}
+
+/* TEXT OVERFOLW */
+.ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

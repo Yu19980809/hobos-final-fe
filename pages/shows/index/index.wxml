@@ -45,11 +45,11 @@
                         </view>
 
                         <view class="name">
-                            <view class="club-name">
+                            <view class="club-name ellipsis">
                                 {{ show.club_name }}
                             </view>
 
-                            <view class="show-name">
+                            <view class="show-name ellipsis">
                                 {{ show.name }}
                             </view>
                         </view>
@@ -60,7 +60,7 @@
                     </view>
                 </view>
 
-                <view class="card-bottom">
+                <view class="card-bottom ellipsis">
                     {{ show.address }}
                 </view>
             </view>

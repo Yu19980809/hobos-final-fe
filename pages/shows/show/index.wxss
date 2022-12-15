@@ -6,12 +6,12 @@
 }
 
 /* name */
-.club_name {
+.clubName {
     height: 40rpx;
     line-height: 40rpx;
 }
 
-.show_name {
+.showName {
     height: 60rpx;
     line-height: 60rpx;
 }
@@ -37,7 +37,7 @@
 
 /* address */
 .address {
-    height: 60rpx;
+    min-height: 60rpx;
 }
 
 .address image {
@@ -52,15 +52,9 @@
 }
 
 .description .content {
-    display: -webkit-box;
-    max-height: 200rpx;
-    color: #606162;
+	min-height: 150rpx;
+	color: #606162;
     text-indent: 2rem;
-    -webkit-box-orient: vertical;
-    line-clamp: 5;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 /* comedian */

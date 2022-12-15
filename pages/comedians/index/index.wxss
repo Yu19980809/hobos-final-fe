@@ -29,8 +29,9 @@
     width: 50%;
     height: 100%;
     flex-grow: 1;
-    padding: 20rpx 0;
-    box-sizing: border-box;
+	padding: 20rpx;
+	padding-right: 25rpx;
+	box-sizing: border-box;
 }
 
 .lists > view > view .info > view {
