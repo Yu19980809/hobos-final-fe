@@ -11,8 +11,8 @@
 
     <!-- name -->
     <view class="py30 px0">
-        <view class="club_name mb20 opacity5 f32">{{ show.club_name }}</view>
-        <view class="show_name f40 bold">{{ show.name }}</view>
+        <view class="clubName mb20 opacity7 f32">{{ show.club_name }}</view>
+        <view class="showName f40 bold">{{ show.name }}</view>
     </view>
 
     <!-- datetime -->
@@ -31,11 +31,11 @@
     <!-- address -->
     <view class="address flex pt30">
         <image src="/images/address.svg" mode="aspectFill" class="mr30 opacity5"/>
-        <text class="f36">{{ show.address }}</text>
+        <text class="f32">{{ show.address }}</text>
     </view>
 
     <!-- description -->
-    <view class="description py50 px0">
+    <view class="description py30 px0">
         <view class="title mb20 f32 bold">演出介绍</view>
         <view class="content f30">{{ show.description }}</view>
     </view>

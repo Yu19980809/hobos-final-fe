@@ -44,11 +44,11 @@
 						</view>
 
 						<view class="name">
-							<view class="club-name">
+							<view class="club-name ellipsis">
 								{{ show.club_name }}
 							</view>
 
-							<view class="show-name">
+							<view class="show-name ellipsis">
 								{{ show.name }}
 							</view>
 						</view>

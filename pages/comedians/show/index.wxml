@@ -80,7 +80,7 @@
 				<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
 			</view>
 
-			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*110):0 }}rpx;">
+			<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*70):0 }}rpx;">
 				<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
 				style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
 			</view>
@@ -106,11 +106,11 @@
 						</view>
 
 						<view class="name">
-							<view class="club-name">
+							<view class="club-name ellipsis">
 								{{ show.club_name }}
 							</view>
 
-							<view class="show-name">
+							<view class="show-name ellipsis">
 								{{ show.name }}
 							</view>
 						</view>
@@ -151,11 +151,11 @@
 						</view>
 
 						<view class="name opacity5">
-							<view class="club-name">
+							<view class="club-name ellipsis">
 								{{ show.club_name }}
 							</view>
 
-							<view class="show-name">
+							<view class="show-name ellipsis">
 								{{ show.name }}
 							</view>
 						</view>

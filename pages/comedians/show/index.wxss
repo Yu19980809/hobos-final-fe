@@ -1,13 +1,15 @@
 /* pages/comedians/show/index.wxss */
+.infos > view {
+	padding: 20rpx 5%;
+	background-color: #000;
+	border-radius: 40rpx;
+}
+
 .infos > view .infosTop {
 	display: flex;
-    height: 150rpx;
-    padding: 0 5%;
-    background-color: #000;
+	height: 150rpx;
+	padding: 10rpx 0;
     color: #fff;
-	border-top-left-radius: 40rpx;
-	border-top-right-radius: 40rpx;
-    box-sizing: border-box;
 }
 
 .infos > view .infosTop .avatar {
@@ -22,7 +24,8 @@
 .infos > view .infosTop .avatar image {
 	width: 110rpx;
     height: 110rpx;
-    border-radius: 50%;
+	border-radius: 50%;
+	box-shadow: 0 0 20rpx #fff;
 }
 
 .infos > view .infosTop .info {
@@ -73,8 +76,7 @@
 
 .infos > view .infosBottom {
 	min-height: 100rpx;
-	max-height: 300rpx;
-	padding: 20rpx 5%;
+	padding: 10rpx 0;
 	transform: translateY(-1rpx);
 	background-color: #000;
 	color: #fff;

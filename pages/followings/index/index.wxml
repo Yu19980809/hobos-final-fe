@@ -52,11 +52,11 @@
 						<image src="{{ comedian.avatar }}" mode="aspectFill"/>
 					</view>
 					<view class="info">
-						<view class="name bold f32">
+						<view class="name bold f32 ellipsis">
 							{{ comedian.nickname }}
 						</view>
 
-						<view class="slogan">
+						<view class="slogan ellipsis">
 							{{ comedian.slogan || '脱缰野马' }}
 						</view>
 					</view>
@@ -85,11 +85,11 @@
 						<image src="{{ club.avatar }}" mode="aspectFill"/>
 					</view>
 					<view class="info">
-						<view class="name bold f32">
+						<view class="name bold f32 ellipsis">
 							{{ club.name }}
 						</view>
 
-						<view class="description">
+						<view class="description ellipsis">
 							{{ club.description || '空空如也' }}
 						</view>
 					</view>

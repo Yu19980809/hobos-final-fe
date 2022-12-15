@@ -251,7 +251,8 @@ Page({
 	 * Lifecycle function--Called when page hide
 	 */
 	onHide() {
-
+		// clear search bar content
+		this.setData({ query: '' })
 	},
 
 	/**
