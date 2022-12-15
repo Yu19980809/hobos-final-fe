@@ -46,7 +46,7 @@
 .card .card-top .card-top-right image {
     width: 100%;
     height: 100%;
-    border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 
 .card .card-bottom {

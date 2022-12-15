@@ -52,7 +52,7 @@
 }
 
 .description .content {
-	min-height: 150rpx;
+	min-height: 60rpx;
 	color: #606162;
     text-indent: 2rem;
 }

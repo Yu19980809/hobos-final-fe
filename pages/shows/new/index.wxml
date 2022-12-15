@@ -116,7 +116,7 @@
 									<image class="select_img:{{ isMenuShow&&'select_img_rotate' }}" src="/images/down.svg"></image>
 								</view>
 
-								<view class="option_box" style="height:{{ isMenuShow?(category.length>8?890:category.length*70):0 }}rpx;">
+								<view class="option_box" style="height:{{ isMenuShow?(category.length>6?420:category.length*70):0 }}rpx;">
 									<text class="option-list" wx:for="{{ category }}" wx:key="this" data-index="{{ index }}" catchtap="onOptionTaps"
 									style="{{ index==category.length-1&&'border:0;' }}">{{item}}</text>
 								</view>
@@ -125,6 +125,20 @@
 						</view>
 					</view>
 				</view>
+
+				<!-- <view class="poster">
+					<view class="left">
+						<image src="/images/description.svg" mode="aspectFill"/>
+						<text>演出海报</text>
+					</view>
+					<view class="right">
+						<button
+							class="bg-white pa0"
+							style="color: rgba(0, 0, 0, .5)"
+							bindtap="onHandleImageSelect"
+						>点击选择图片</button>
+					</view>
+				</view> -->
 
 				<view class="description">
 					<view class="left">

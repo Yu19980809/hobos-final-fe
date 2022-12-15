@@ -15,6 +15,23 @@ Page({
 	},
 
 	/**
+	 * select poster
+	 */
+	onHandleImageSelect() {
+		const _this = this;
+		wx.chooseMedia({
+			count: 1,
+			sizeType: ['original', 'compressed'],
+			sourceType: ['album', 'camera'],
+			success(res) {
+				const { tempFilePath } = res.tempFiles[0];
+				console.log('select image', res);
+				console.log('path', tempFilePath);
+			}
+		})
+	},
+
+	/**
 	 * get all comedians
 	 */
 	onFetchAllComeidans() {
@@ -27,7 +44,7 @@ Page({
 				// set category
 				let comedians = [];
 				res.data.comedians.forEach(comedian => {
-					comedians.unshift(comedian.nickname)
+					comedians.push(comedian.nickname)
 				})
 				_this.setData({ comedians: res.data.comedians });
 				_this.setData({ category: comedians });

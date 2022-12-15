@@ -22,7 +22,8 @@
 .lists > view > view > view .avatar image {
     width: 110rpx;
     height: 110rpx;
-    border-radius: 50%;
+	border-radius: 50%;
+	box-shadow: 0 0 20rpx #fff;
 }
 
 .lists > view > view > view .info {
@@ -35,7 +36,6 @@
 }
 
 .lists > view > view > view .info > view {
-    display: flex;
     align-items: center;
     height: 50%;
     padding: 0 20rpx;

@@ -35,7 +35,7 @@
     </view>
 
     <!-- description -->
-    <view class="description py50 px0">
+    <view class="description py30 px0">
         <view class="title mb20 f32 bold">演出介绍</view>
         <view class="content f30">{{ show.description }}</view>
     </view>
