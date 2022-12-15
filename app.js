@@ -22,7 +22,7 @@ App({
 
 	wx.request({
 		url: `${_this.globalData.baseUrl}/login`,
-		method: 'POST',
+		method: "POST",
 		data: { code },
 		success(res) {
 			if (res.statusCode === 200) {
