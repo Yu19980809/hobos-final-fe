@@ -37,7 +37,8 @@ const checkShowExpired = (_this, shows) => {
 			expiredShows.unshift(show);
 		} else {
 			// this show is upcoming
-			upcomingShows.unshift(show);
+			// upcomingShows.unshift(show);
+			upcomingShows.push(show);
 		}
 	})
 
