@@ -77,7 +77,7 @@ Page({
             url: `${globalData.baseUrl}/shows`,
 			header: globalData.header,
             success(res) {
-                wx.hideLoading();
+				wx.hideLoading();
 				checkShowExpired(_this, res.data.shows);
 			}
         })
